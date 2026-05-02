@@ -2,215 +2,224 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>RISC-V Chip Generator — RL Evolution</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chip Generator — RL Evolution + Codegen</title>
 <style>
-  :root {
-    --bg:      #080c14;
-    --bg2:     #0d1420;
-    --panel:   #0f1c2e;
-    --border:  #1a3050;
-    --accent:  #00ff88;
-    --accent2: #00ccff;
-    --accent3: #ff6600;
-    --warn:    #ffcc00;
-    --red:     #ff3344;
-    --text:    #d0e0f0;
-    --dim:     #445566;
-    --glow:    0 0 8px #00ff8866;
-  }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--text); font-family:'Courier New',monospace;
-         display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+:root {
+  --bg:     #07090f;
+  --bg2:    #0c1118;
+  --panel:  #0d1520;
+  --bdr:    #182840;
+  --accent: #00ff88;
+  --a2:     #00ccff;
+  --a3:     #ff6600;
+  --warn:   #ffcc00;
+  --red:    #ff3344;
+  --purple: #cc44ff;
+  --text:   #c8d8e8;
+  --dim:    #3d5570;
+  --glow:   0 0 10px #00ff8855;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
+     display:flex;flex-direction:column;height:100vh;overflow:hidden;font-size:11px}
 
-  /* ── Top bar ── */
-  #topbar {
-    background:var(--panel); border-bottom:1px solid var(--border);
-    display:flex; align-items:center; padding:6px 14px; gap:16px; flex-shrink:0;
-  }
-  #topbar h1 { color:var(--accent); font-size:15px; letter-spacing:2px; text-shadow:var(--glow); }
-  #topbar .sub { color:var(--dim); font-size:10px; }
-  #status-bar { margin-left:auto; font-size:10px; color:var(--dim);
-                max-width:500px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+/* ─ Topbar ─ */
+#topbar{background:var(--panel);border-bottom:1px solid var(--bdr);
+        display:flex;align-items:center;padding:5px 12px;gap:12px;flex-shrink:0;height:36px}
+#topbar h1{color:var(--accent);font-size:13px;letter-spacing:2px;text-shadow:var(--glow);white-space:nowrap}
+.tab-bar{display:flex;gap:2px;margin-left:8px}
+.tab{padding:3px 10px;background:var(--bg2);color:var(--dim);border:1px solid var(--bdr);
+     border-radius:3px 3px 0 0;cursor:pointer;font-family:inherit;font-size:10px;transition:all .15s}
+.tab.active{background:var(--panel);color:var(--accent);border-bottom-color:var(--panel)}
+.tab:hover{color:var(--text)}
+#status{margin-left:auto;font-size:9px;color:var(--dim);max-width:420px;
+        overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-  /* ── Main layout ── */
-  #main { display:flex; flex:1; overflow:hidden; }
+/* ─ Main ─ */
+#main{display:flex;flex:1;overflow:hidden}
 
-  /* ── Left panel ── */
-  #sidebar {
-    width:240px; flex-shrink:0; background:var(--panel);
-    border-right:1px solid var(--border); display:flex; flex-direction:column;
-    overflow-y:auto; padding:8px;
-  }
-  .section-title {
-    color:var(--dim); font-size:9px; letter-spacing:3px; text-transform:uppercase;
-    padding:10px 4px 4px; border-bottom:1px solid var(--border); margin-bottom:6px;
-  }
-  label { font-size:10px; color:var(--dim); display:block; margin-bottom:2px; }
-  select, input[type=range], input[type=number], input[type=text] {
-    width:100%; background:var(--bg2); color:var(--text); border:1px solid var(--border);
-    padding:4px 6px; font-family:inherit; font-size:11px; border-radius:3px; outline:none;
-  }
-  select:focus, input:focus { border-color:var(--accent); }
-  .field { margin-bottom:8px; }
-  .bw-btns { display:flex; gap:3px; flex-wrap:wrap; }
-  .bw-btn {
-    flex:1; min-width:32px; padding:4px 2px; background:var(--bg2); color:var(--dim);
-    border:1px solid var(--border); font-family:inherit; font-size:10px; cursor:pointer;
-    border-radius:3px; transition:all .15s;
-  }
-  .bw-btn.active { background:var(--accent); color:#000; border-color:var(--accent); font-weight:bold; }
-  .btn {
-    width:100%; padding:6px 4px; font-family:inherit; font-size:11px; font-weight:bold;
-    border:none; border-radius:3px; cursor:pointer; letter-spacing:1px;
-    transition:all .15s; margin-bottom:4px;
-  }
-  .btn-gen  { background:#0a2a18; color:var(--accent); border:1px solid var(--accent); }
-  .btn-evo  { background:#0a2030; color:var(--accent2); border:1px solid var(--accent2); }
-  .btn-stop { background:#2a0a0a; color:var(--red); border:1px solid var(--red); }
-  .btn-mut  { background:#1a1a0a; color:var(--warn); border:1px solid var(--warn); }
-  .btn-save { background:#1a1020; color:#cc88ff; border:1px solid #cc88ff; }
-  .btn-load { background:#101a20; color:var(--accent2); border:1px solid var(--accent2); }
-  .btn-hof  { background:#1a1800; color:var(--warn); border:1px solid var(--warn); }
-  .btn-reset{ background:#1a0a00; color:var(--accent3); border:1px solid var(--accent3); }
-  .btn:hover { filter:brightness(1.3); }
-  .btn:disabled { opacity:.4; cursor:not-allowed; }
+/* ─ Sidebar ─ */
+#sidebar{width:232px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--bdr);
+         display:flex;flex-direction:column;overflow-y:auto;padding:6px}
+.stitle{color:var(--dim);font-size:8px;letter-spacing:2px;text-transform:uppercase;
+        padding:8px 2px 3px;border-bottom:1px solid var(--bdr);margin-bottom:5px}
+label{font-size:9px;color:var(--dim);display:block;margin-bottom:1px}
+select,input[type=range],input[type=number],input[type=text]{
+  width:100%;background:var(--bg2);color:var(--text);border:1px solid var(--bdr);
+  padding:3px 5px;font-family:inherit;font-size:10px;border-radius:2px;outline:none}
+select:focus,input:focus{border-color:var(--accent)}
+.field{margin-bottom:6px}
+.bwbtns{display:flex;gap:2px}
+.bwb{flex:1;padding:3px 1px;background:var(--bg2);color:var(--dim);
+     border:1px solid var(--bdr);font-family:inherit;font-size:9px;cursor:pointer;
+     border-radius:2px;transition:all .15s}
+.bwb.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:bold}
+.btn{width:100%;padding:5px 4px;font-family:inherit;font-size:10px;font-weight:bold;
+     border:none;border-radius:2px;cursor:pointer;letter-spacing:1px;
+     transition:all .15s;margin-bottom:3px}
+.bg{background:#071a0f;color:var(--accent);border:1px solid var(--accent)}
+.bb{background:#071520;color:var(--a2);border:1px solid var(--a2)}
+.bs{background:#1a0a08;color:var(--red);border:1px solid var(--red)}
+.bm{background:#151500;color:var(--warn);border:1px solid var(--warn)}
+.bsv{background:#0e0a1a;color:var(--purple);border:1px solid var(--purple)}
+.blo{background:#071520;color:var(--a2);border:1px solid var(--a2)}
+.bh{background:#141200;color:var(--warn);border:1px solid var(--warn)}
+.br{background:#120800;color:var(--a3);border:1px solid var(--a3)}
+.btn:hover{filter:brightness(1.3)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.metric{display:flex;justify-content:space-between;padding:2px 0;font-size:9px}
+.ml{color:var(--dim)}
+.mv{color:var(--accent);font-weight:bold}
+.mv.b{color:var(--a2)}.mv.o{color:var(--a3)}.mv.w{color:var(--warn)}.mv.p{color:var(--purple)}
+#fitness-bg{height:5px;background:var(--bg2);border-radius:3px;overflow:hidden;margin:4px 0}
+#fitness-fill{height:100%;width:0%;border-radius:3px;transition:width .5s}
+#unit-list{font-size:8px;max-height:130px;overflow-y:auto}
+.ur{display:flex;align-items:center;gap:5px;padding:2px 0}
+.usw{width:9px;height:9px;border-radius:1px;flex-shrink:0}
+.un{color:var(--text);width:50px}.uc{color:var(--dim);width:20px}
+.ub-w{flex:1;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden}
+.ub{height:100%;border-radius:2px}
+.novel-badge{font-size:7px;background:#1a0030;color:var(--purple);
+             padding:0 3px;border-radius:2px;border:1px solid var(--purple)}
+#evo-log{font-size:7px;color:var(--dim);max-height:90px;overflow-y:auto;
+         background:var(--bg2);border:1px solid var(--bdr);border-radius:2px;padding:3px}
+.ll{padding:1px 0;border-bottom:1px solid #0f1820}.lp{color:#00ff8899}.ln{color:#ff334466}
+#rl-row{display:flex;align-items:center;gap:5px;font-size:8px;color:var(--dim);padding:3px 0}
+#rl-dot{width:7px;height:7px;border-radius:50%;background:var(--dim);flex-shrink:0}
+#rl-dot.on{background:var(--accent);box-shadow:var(--glow);animation:pulse .8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-  /* metrics */
-  .metric { display:flex; justify-content:space-between; font-size:10px; padding:2px 0; }
-  .metric .label { color:var(--dim); }
-  .metric .val   { color:var(--accent); font-weight:bold; }
-  .metric .val.blue  { color:var(--accent2); }
-  .metric .val.orange{ color:var(--accent3); }
-  .metric .val.warn  { color:var(--warn); }
+/* ─ Tab pages ─ */
+.page{display:none;flex:1;overflow:hidden;flex-direction:row}
+.page.active{display:flex}
 
-  /* fitness bar */
-  #fitness-bar-wrap { margin:6px 0; }
-  #fitness-bar-bg { height:6px; background:var(--bg2); border-radius:3px; overflow:hidden; }
-  #fitness-bar { height:100%; background:var(--accent); width:0%; transition:width .4s; border-radius:3px; }
+/* ─ Canvas page ─ */
+#canvas-area{flex:1;display:flex;align-items:center;justify-content:center;
+             background:var(--bg);overflow:hidden;position:relative}
+#chip-canvas{image-rendering:pixelated;cursor:crosshair}
+#evo-overlay{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+             background:#0009;padding:5px 14px;border-radius:4px;font-size:9px;
+             color:var(--accent);pointer-events:none;opacity:0;transition:opacity .3s;
+             border:1px solid var(--a2)}
+#evo-overlay.show{opacity:1}
 
-  /* unit list */
-  #unit-list { font-size:9px; max-height:150px; overflow-y:auto; }
-  .unit-row { display:flex; align-items:center; gap:6px; padding:2px 0; }
-  .unit-swatch { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
-  .unit-name  { color:var(--text); width:55px; }
-  .unit-count { color:var(--dim); font-size:9px; }
-  .unit-bar-wrap { flex:1; height:4px; background:var(--bg2); border-radius:2px; overflow:hidden; }
-  .unit-bar { height:100%; border-radius:2px; }
+/* ─ Right panel ─ */
+#right-panel{width:190px;flex-shrink:0;background:var(--panel);
+             border-left:1px solid var(--bdr);display:flex;flex-direction:column;
+             overflow-y:auto;padding:6px}
+.pop-row{display:flex;align-items:center;gap:5px;padding:3px;border-radius:2px;
+         font-size:8px;margin-bottom:2px;cursor:pointer;border:1px solid transparent;transition:all .15s}
+.pop-row:hover{border-color:var(--a2);background:var(--bg2)}
+.pop-row.best{border-color:var(--accent);background:#001a0c}
+.pop-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pop-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+.pop-fit{color:var(--accent);font-size:8px;font-weight:bold}
+.pop-nb{color:var(--purple);font-size:7px}
 
-  /* log */
-  #evo-log { font-size:8px; color:var(--dim); max-height:120px; overflow-y:auto;
-             background:var(--bg2); border:1px solid var(--border); border-radius:3px; padding:4px; }
-  #evo-log .log-line { padding:1px 0; border-bottom:1px solid #111; }
-  #evo-log .log-pos { color:#00ff88aa; }
-  #evo-log .log-neg { color:#ff334488; }
+/* ─ Codegen page ─ */
+#codegen-page{flex-direction:column;background:var(--bg)}
+#codegen-controls{background:var(--panel);border-bottom:1px solid var(--bdr);
+                   display:flex;align-items:center;gap:8px;padding:6px 12px;flex-shrink:0}
+#codegen-controls span{color:var(--dim);font-size:9px}
+.lang-btn{padding:4px 12px;font-family:inherit;font-size:10px;font-weight:bold;
+          cursor:pointer;border-radius:2px;transition:all .15s}
+.lang-btn.asm{background:#071a0f;color:var(--accent);border:1px solid var(--accent)}
+.lang-btn.vhd{background:#0a0a1a;color:var(--a2);border:1px solid var(--a2)}
+.lang-btn.ver{background:#1a0a10;color:var(--purple);border:1px solid var(--purple)}
+.lang-btn:hover{filter:brightness(1.4)}
+#copy-btn{margin-left:auto;padding:4px 10px;font-family:inherit;font-size:9px;
+          background:var(--bg2);color:var(--dim);border:1px solid var(--bdr);cursor:pointer;
+          border-radius:2px}
+#copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+#download-btn{padding:4px 10px;font-family:inherit;font-size:9px;
+          background:var(--bg2);color:var(--dim);border:1px solid var(--bdr);cursor:pointer;
+          border-radius:2px}
+#download-btn:hover{border-color:var(--warn);color:var(--warn)}
+#code-meta{font-size:8px;color:var(--dim)}
+#code-view{flex:1;overflow:auto;padding:12px;background:var(--bg)}
+#code-pre{color:var(--text);font-family:'Courier New',monospace;font-size:10px;
+          line-height:1.5;white-space:pre;tab-size:2}
+.code-comment{color:#3a5a3a}
+.code-instr{color:#8888ff}
+.code-keyword{color:#ff8844}
+.code-string{color:#88cc88}
 
-  /* ── Center: canvas area ── */
-  #canvas-area {
-    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    background:var(--bg); overflow:hidden; position:relative;
-  }
-  #chip-canvas { display:block; image-rendering:pixelated; cursor:crosshair; }
-  #canvas-overlay {
-    position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
-    background:#000a; padding:6px 14px; border-radius:4px; font-size:10px;
-    color:var(--accent); pointer-events:none; opacity:0; transition:opacity .3s;
-    border:1px solid var(--accent2);
-  }
-  #canvas-overlay.show { opacity:1; }
+/* ─ Arch page ─ */
+#arch-page{flex-direction:column;background:var(--bg);overflow:auto}
+#arch-inner{padding:16px;max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.arch-card{background:var(--panel);border:1px solid var(--bdr);border-radius:4px;padding:10px}
+.arch-card h3{color:var(--accent);font-size:10px;letter-spacing:1px;margin-bottom:8px}
+.arch-metric{display:flex;justify-content:space-between;font-size:9px;padding:2px 0}
+.arch-metric .al{color:var(--dim)}.arch-metric .av{color:var(--a2);font-weight:bold}
 
-  /* ── Right panel: pop + HoF ── */
-  #right-panel {
-    width:200px; flex-shrink:0; background:var(--panel);
-    border-left:1px solid var(--border); display:flex; flex-direction:column;
-    overflow-y:auto; padding:8px;
-  }
-  .pop-row {
-    display:flex; align-items:center; gap:6px; padding:3px 4px;
-    border-radius:3px; font-size:9px; margin-bottom:2px; cursor:pointer;
-    border:1px solid transparent; transition:all .15s;
-  }
-  .pop-row:hover { border-color:var(--accent2); background:var(--bg2); }
-  .pop-row.best  { border-color:var(--accent); background:#001a0c; }
-  .pop-rank { color:var(--dim); width:14px; }
-  .pop-name { flex:1; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .pop-fit  { color:var(--accent); font-weight:bold; }
-  .pop-dot  { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+/* ─ Registry page ─ */
+#registry-page{flex-direction:column;background:var(--bg);overflow:auto}
+#registry-inner{padding:12px}
+#registry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:8px}
+.reg-card{background:var(--panel);border-radius:3px;padding:8px;border-left:3px solid var(--purple)}
+.reg-card .rn{font-size:11px;font-weight:bold;margin-bottom:3px}
+.reg-card .rw{font-size:9px;color:var(--warn)}
+.reg-card .rc{font-size:8px;color:var(--dim);margin-top:3px;line-height:1.4}
+.reg-card .rd{font-size:8px;color:var(--a2);margin-top:4px;line-height:1.3}
+.invent-btn{padding:5px 14px;font-family:inherit;font-size:10px;font-weight:bold;
+            background:#1a0030;color:var(--purple);border:1px solid var(--purple);
+            cursor:pointer;border-radius:2px}
+.invent-btn:hover{filter:brightness(1.4)}
 
-  /* modal */
-  #modal-bg {
-    display:none; position:fixed; inset:0; background:#0009;
-    z-index:100; align-items:center; justify-content:center;
-  }
-  #modal-bg.open { display:flex; }
-  #modal {
-    background:var(--panel); border:1px solid var(--accent); border-radius:6px;
-    padding:20px; min-width:360px; max-width:90vw; max-height:80vh; overflow-y:auto;
-  }
-  #modal h2 { color:var(--accent); font-size:13px; margin-bottom:10px; }
-  .modal-close { float:right; background:none; border:none; color:var(--red); font-size:16px; cursor:pointer; }
-  .hof-row { display:flex; gap:8px; align-items:center; padding:4px 0;
-             border-bottom:1px solid var(--border); font-size:10px; }
-  .hof-rank { color:var(--warn); width:20px; }
-  .hof-name { flex:1; color:var(--text); }
-  .hof-fit  { color:var(--accent); }
-  .hof-type { color:var(--dim); font-size:9px; }
+/* ─ Modal ─ */
+#modal-bg{display:none;position:fixed;inset:0;background:#0009;
+          z-index:100;align-items:center;justify-content:center}
+#modal-bg.open{display:flex}
+#modal{background:var(--panel);border:1px solid var(--accent);border-radius:5px;
+       padding:18px;min-width:340px;max-width:90vw;max-height:80vh;overflow-y:auto}
+#modal h2{color:var(--accent);font-size:12px;margin-bottom:10px}
+.mc{float:right;background:none;border:none;color:var(--red);font-size:15px;cursor:pointer}
+.hof-row{display:flex;gap:7px;align-items:center;padding:3px 0;
+         border-bottom:1px solid var(--bdr);font-size:9px;cursor:pointer}
+.hof-row:hover{background:var(--bg2)}
+.hr{color:var(--warn);width:18px}.hn{flex:1;color:var(--text)}.hf{color:var(--accent)}
+.ht{color:var(--dim);font-size:8px}
 
-  /* tooltip */
-  .tooltip { position:relative; }
-  .tooltip:hover::after {
-    content:attr(data-tip); position:absolute; bottom:110%; left:50%; transform:translateX(-50%);
-    background:#000d; color:var(--text); font-size:9px; padding:3px 7px; border-radius:3px;
-    white-space:nowrap; pointer-events:none; z-index:99;
-  }
-
-  /* scrollbar */
-  ::-webkit-scrollbar { width:4px; height:4px; }
-  ::-webkit-scrollbar-track { background:var(--bg2); }
-  ::-webkit-scrollbar-thumb { background:var(--dim); border-radius:2px; }
-
-  /* rl indicator */
-  #rl-indicator {
-    display:flex; gap:6px; align-items:center; font-size:9px; color:var(--dim); padding:4px 0;
-  }
-  #rl-dot { width:8px; height:8px; border-radius:50%; background:var(--dim); flex-shrink:0; }
-  #rl-dot.active { background:var(--accent); box-shadow:var(--glow); animation:pulse .8s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--dim);border-radius:2px}
 </style>
 </head>
 <body>
 
-<!-- Top bar -->
 <div id="topbar">
   <h1>⬡ CHIP GENERATOR</h1>
-  <span class="sub">RISC-V · NPU · TPU · GPU · QPU + Novel Units | RL Evolution Engine</span>
-  <div id="status-bar">Ready — generate a chip to begin</div>
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('canvas')">Canvas</button>
+    <button class="tab" onclick="switchTab('arch')">Architecture</button>
+    <button class="tab" onclick="switchTab('codegen')">Code</button>
+    <button class="tab" onclick="switchTab('registry')">Block Registry</button>
+  </div>
+  <div id="status">Ready — generate a chip</div>
 </div>
 
-<!-- Main layout -->
 <div id="main">
 
-  <!-- Sidebar controls -->
+  <!-- ── Sidebar ── -->
   <div id="sidebar">
 
-    <div class="section-title">Chip Type</div>
-    <div class="field">
-      <select id="chip-type"></select>
-    </div>
+    <div class="stitle">Chip Type</div>
+    <div class="field"><select id="chip-type"></select></div>
 
-    <div class="section-title">Bit Width (RISC-V)</div>
-    <div class="bw-btns" id="bw-btns"></div>
+    <div class="stitle">Bit Width</div>
+    <div class="bwbtns" id="bw-btns"></div>
 
-    <div class="section-title">Configuration</div>
+    <div class="stitle">Parameters</div>
     <div class="field">
-      <label>Core Count: <span id="cores-val">1</span></label>
+      <label>Cores: <span id="cores-v">1</span></label>
       <input type="range" id="cores" min="1" max="64" value="1"
-             oninput="document.getElementById('cores-val').textContent=this.value"/>
+             oninput="document.getElementById('cores-v').textContent=this.value"/>
     </div>
     <div class="field">
-      <label>Pipeline Stages: <span id="pipe-val">5</span></label>
+      <label>Pipeline: <span id="pipe-v">5</span> stages</label>
       <input type="range" id="pipeline" min="2" max="32" value="5"
-             oninput="document.getElementById('pipe-val').textContent=this.value"/>
+             oninput="document.getElementById('pipe-v').textContent=this.value"/>
     </div>
     <div class="field">
       <label>Cache (KB)</label>
@@ -222,68 +231,129 @@
       </select>
     </div>
 
-    <div class="section-title">Generate</div>
-    <button class="btn btn-gen" onclick="generateChip()">⚡ GENERATE CHIP</button>
+    <div class="stitle">Generate</div>
+    <button class="btn bg" onclick="generateChip()">⚡ GENERATE CHIP</button>
 
-    <div class="section-title">Evolution</div>
+    <div class="stitle">Evolution</div>
     <div class="field">
-      <label>Steps: <span id="steps-val">20</span></label>
-      <input type="range" id="evo-steps" min="1" max="200" value="20"
-             oninput="document.getElementById('steps-val').textContent=this.value"/>
+      <label>Steps: <span id="steps-v">20</span></label>
+      <input type="range" id="evo-steps" min="1" max="300" value="20"
+             oninput="document.getElementById('steps-v').textContent=this.value"/>
     </div>
     <div class="field">
-      <label>Mutation Strength: <span id="strength-val">1.0</span></label>
-      <input type="range" id="strength" min="0.1" max="5.0" step="0.1" value="1.0"
-             oninput="document.getElementById('strength-val').textContent=parseFloat(this.value).toFixed(1)"/>
+      <label>Mutation Strength: <span id="str-v">1.0</span></label>
+      <input type="range" id="strength" min="0.1" max="8.0" step="0.1" value="1.0"
+             oninput="document.getElementById('str-v').textContent=parseFloat(this.value).toFixed(1)"/>
     </div>
 
-    <div id="rl-indicator">
-      <div id="rl-dot"></div>
-      <span id="rl-label">RL Agent idle — ε=1.00</span>
-    </div>
+    <div id="rl-row"><div id="rl-dot"></div><span id="rl-lbl">RL Agent idle — ε=1.000</span></div>
 
-    <button class="btn btn-evo" id="btn-evolve" onclick="startEvolve()">▶ EVOLVE</button>
-    <button class="btn btn-stop" id="btn-stop" onclick="stopEvolve()" disabled>■ STOP</button>
-    <button class="btn btn-mut tooltip" data-tip="Apply one RL mutation" onclick="mutateOnce()">↻ MUTATE ONCE</button>
-    <button class="btn btn-reset" onclick="resetPopulation()">⟳ RESET POPULATION</button>
+    <button class="btn bb" id="btn-evo" onclick="startEvolve()">▶ EVOLVE</button>
+    <button class="btn bs" id="btn-stop" onclick="stopEvolve()" disabled>■ STOP</button>
+    <button class="btn bm" onclick="mutateOnce()">↻ MUTATE ONCE</button>
+    <button class="btn br" onclick="resetPop()">⟳ RESET POPULATION</button>
 
-    <div class="section-title">Save / Load</div>
-    <button class="btn btn-save" onclick="saveState()">💾 SAVE STATE</button>
-    <button class="btn btn-load" onclick="showLoadModal()">📂 LOAD STATE</button>
-    <button class="btn btn-hof"  onclick="showHoF()">🏆 HALL OF FAME</button>
+    <div class="stitle">Code Export</div>
+    <button class="btn bg" onclick="openCodegen('assembly')">🔧 ASSEMBLY</button>
+    <button class="btn bb" onclick="openCodegen('vhdl')">📐 VHDL</button>
+    <button class="btn bsv" onclick="openCodegen('verilog')">⚡ VERILOG</button>
 
-    <div class="section-title">Metrics</div>
-    <div id="fitness-bar-wrap">
-      <div id="fitness-bar-bg"><div id="fitness-bar"></div></div>
-    </div>
-    <div class="metric"><span class="label">Fitness</span><span class="val" id="m-fitness">—</span></div>
-    <div class="metric"><span class="label">Generation</span><span class="val blue" id="m-gen">0</span></div>
-    <div class="metric"><span class="label">Last Reward</span><span class="val orange" id="m-reward">—</span></div>
-    <div class="metric"><span class="label">RL Steps</span><span class="val warn" id="m-rl-steps">0</span></div>
-    <div class="metric"><span class="label">Pop Size</span><span class="val" id="m-pop">8</span></div>
+    <div class="stitle">Save / Load</div>
+    <button class="btn bg"  onclick="saveState()">💾 SAVE STATE</button>
+    <button class="btn blo" onclick="showLoadModal()">📂 LOAD STATE</button>
+    <button class="btn bh"  onclick="showHoF()">🏆 HALL OF FAME</button>
 
-    <div class="section-title">Functional Units</div>
+    <div class="stitle">Metrics</div>
+    <div id="fitness-bg"><div id="fitness-fill"></div></div>
+    <div class="metric"><span class="ml">Fitness</span><span class="mv" id="m-fit">—</span></div>
+    <div class="metric"><span class="ml">Generation</span><span class="mv b" id="m-gen">0</span></div>
+    <div class="metric"><span class="ml">Last Reward</span><span class="mv o" id="m-rew">—</span></div>
+    <div class="metric"><span class="ml">RL Steps</span><span class="mv w" id="m-rl">0</span></div>
+    <div class="metric"><span class="ml">Novel Blocks</span><span class="mv p" id="m-novel">0</span></div>
+    <div class="metric"><span class="ml">Discoveries</span><span class="mv p" id="m-disc">0</span></div>
+
+    <div class="stitle">Functional Units</div>
     <div id="unit-list"></div>
 
-    <div class="section-title">Evolution Log</div>
+    <div class="stitle">Evolution Log</div>
     <div id="evo-log"></div>
 
   </div>
 
-  <!-- Canvas -->
-  <div id="canvas-area">
-    <canvas id="chip-canvas"></canvas>
-    <div id="canvas-overlay" id="evolve-msg"></div>
+  <!-- ══ Canvas Page ══ -->
+  <div id="canvas-page" class="page active">
+    <div id="canvas-area">
+      <canvas id="chip-canvas"></canvas>
+      <div id="evo-overlay"></div>
+    </div>
+    <div id="right-panel">
+      <div class="stitle">Population</div>
+      <div id="pop-list"></div>
+      <div class="stitle" style="margin-top:6px">Architecture</div>
+      <div id="arch-mini" style="font-size:8px;color:var(--dim);line-height:1.6"></div>
+      <div class="stitle" style="margin-top:6px">Mutation History</div>
+      <div id="mut-hist" style="font-size:7px;color:var(--dim);max-height:110px;overflow-y:auto"></div>
+    </div>
   </div>
 
-  <!-- Right panel: population -->
-  <div id="right-panel">
-    <div class="section-title">Population</div>
-    <div id="population-list"></div>
-    <div class="section-title" style="margin-top:8px">Best Chip</div>
-    <div id="best-chip-info" style="font-size:9px; color:var(--dim);">—</div>
-    <div class="section-title" style="margin-top:8px">Mutation History</div>
-    <div id="mut-history" style="font-size:8px; color:var(--dim); max-height:120px; overflow-y:auto;"></div>
+  <!-- ══ Architecture Page ══ -->
+  <div id="arch-page" class="page">
+    <div id="arch-inner">
+      <div class="arch-card">
+        <h3>ISA &amp; Execution</h3>
+        <div class="field"><label>ISA Type</label><select id="arch-isa" onchange="archUpdate()"></select></div>
+        <div class="field"><label>Execution Model</label><select id="arch-exec" onchange="archUpdate()"></select></div>
+        <div class="field"><label>Pipeline Architecture</label><select id="arch-pipe" onchange="archUpdate()"></select></div>
+      </div>
+      <div class="arch-card">
+        <h3>Memory &amp; Interconnect</h3>
+        <div class="field"><label>Memory Model</label><select id="arch-mem" onchange="archUpdate()"></select></div>
+        <div class="field"><label>Interconnect</label><select id="arch-ic" onchange="archUpdate()"></select></div>
+      </div>
+      <div class="arch-card">
+        <h3>Physical &amp; Power</h3>
+        <div class="field"><label>Process Node</label><select id="arch-node" onchange="archUpdate()"></select></div>
+        <div class="field"><label>Voltage Domain</label><select id="arch-volt" onchange="archUpdate()"></select></div>
+        <div class="field"><label>Clock Topology</label><select id="arch-clk" onchange="archUpdate()"></select></div>
+      </div>
+      <div class="arch-card">
+        <h3>Derived Metrics</h3>
+        <div class="arch-metric"><span class="al">Area</span><span class="av" id="da-area">—</span></div>
+        <div class="arch-metric"><span class="al">Power</span><span class="av" id="da-power">—</span></div>
+        <div class="arch-metric"><span class="al">Frequency</span><span class="av" id="da-freq">—</span></div>
+        <div class="arch-metric"><span class="al">IPC</span><span class="av" id="da-ipc">—</span></div>
+        <div class="arch-metric"><span class="al">Arch Bonus</span><span class="av" id="da-bonus">—</span></div>
+        <div class="arch-metric"><span class="al">Fitness</span><span class="av" id="da-fit">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Codegen Page ══ -->
+  <div id="codegen-page" class="page">
+    <div id="codegen-controls">
+      <span>Export:</span>
+      <button class="lang-btn asm" onclick="loadCode('assembly')">Assembly (RISC-V)</button>
+      <button class="lang-btn vhd" onclick="loadCode('vhdl')">VHDL</button>
+      <button class="lang-btn ver" onclick="loadCode('verilog')">Verilog</button>
+      <span id="code-meta"></span>
+      <button id="copy-btn" onclick="copyCode()">Copy</button>
+      <button id="download-btn" onclick="downloadCode()">Download</button>
+    </div>
+    <div id="code-view">
+      <pre id="code-pre" style="color:var(--dim)">← Select a chip type and hit Generate, then choose Assembly / VHDL / Verilog to export code.</pre>
+    </div>
+  </div>
+
+  <!-- ══ Registry Page ══ -->
+  <div id="registry-page" class="page">
+    <div id="registry-inner">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <span style="color:var(--purple);font-size:12px;font-weight:bold">⬟ NOVEL BLOCK REGISTRY</span>
+        <button class="invent-btn" onclick="inventBlock()">+ INVENT NEW BLOCK</button>
+        <span style="font-size:9px;color:var(--dim)" id="reg-count">0 blocks discovered</span>
+      </div>
+      <div id="registry-grid"></div>
+    </div>
   </div>
 
 </div>
@@ -291,229 +361,206 @@
 <!-- Modal -->
 <div id="modal-bg" onclick="if(event.target===this)closeModal()">
   <div id="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <h2 id="modal-title">Modal</h2>
+    <button class="mc" onclick="closeModal()">✕</button>
+    <h2 id="modal-title"></h2>
     <div id="modal-body"></div>
   </div>
 </div>
 
 <script>
-// ─── State ───────────────────────────────────────────────────────────────────
-let currentChip = null;
-let chipTypesData = {};
-let selectedBW = 32;
-let evolving = false;
-let pollTimer = null;
+// ─── State ─────────────────────────────────────────────────────────────────
+let chip = null, meta = {}, evolving = false, pollTimer = null;
+let selectedBW = 32, currentCode = '', currentLang = 'assembly';
+let activeTab = 'canvas';
 
-// ─── Init ─────────────────────────────────────────────────────────────────────
+// ─── Init ──────────────────────────────────────────────────────────────────
 async function init() {
-  const res = await fetch('/api/chip_types');
-  chipTypesData = await res.json();
+  const res = await fetch('/api/meta');
+  meta = await res.json();
 
+  // chip type select
   const sel = document.getElementById('chip-type');
-  chipTypesData.types.forEach(t => {
+  meta.chip_types.forEach(t => {
     const o = document.createElement('option');
     o.value = o.textContent = t;
     sel.appendChild(o);
   });
 
+  // bit-width buttons
   const bwWrap = document.getElementById('bw-btns');
-  chipTypesData.bit_widths.forEach(bw => {
-    const btn = document.createElement('button');
-    btn.className = 'bw-btn' + (bw === 32 ? ' active' : '');
-    btn.textContent = bw;
-    btn.onclick = () => selectBW(bw);
-    bwWrap.appendChild(btn);
+  meta.bit_widths.forEach(bw => {
+    const b = document.createElement('button');
+    b.className = 'bwb' + (bw === 32 ? ' active' : '');
+    b.textContent = bw;
+    b.onclick = () => { selectedBW = bw; document.querySelectorAll('.bwb').forEach(x => x.classList.toggle('active', parseInt(x.textContent) === bw)); };
+    bwWrap.appendChild(b);
   });
+
+  // populate arch selects
+  populateSelect('arch-isa',  meta.isa_types);
+  populateSelect('arch-exec', meta.execution_models);
+  populateSelect('arch-pipe', meta.pipeline_archs);
+  populateSelect('arch-mem',  meta.memory_models);
+  populateSelect('arch-ic',   meta.interconnects);
+  populateSelect('arch-node', meta.process_nodes, '7nm');
+  populateSelect('arch-volt', meta.voltage_domains);
+  populateSelect('arch-clk',  meta.clock_topologies);
 
   setupCanvas();
   await generateChip();
 }
 
-function selectBW(bw) {
-  selectedBW = bw;
-  document.querySelectorAll('.bw-btn').forEach(b => {
-    b.classList.toggle('active', parseInt(b.textContent) === bw);
+function populateSelect(id, options, def) {
+  const sel = document.getElementById(id);
+  options.forEach(o => {
+    const el = document.createElement('option');
+    el.value = el.textContent = o;
+    if (def && o === def) el.selected = true;
+    sel.appendChild(el);
   });
 }
 
-// ─── Canvas ──────────────────────────────────────────────────────────────────
-const PIXEL = 20;
-const BORDER = 14;
-const LABEL_H = 28;
-const FOOTER_H = 44;
+// ─── Tabs ──────────────────────────────────────────────────────────────────
+function switchTab(name) {
+  activeTab = name;
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    const tabs = ['canvas','arch','codegen','registry'];
+    t.classList.toggle('active', tabs[i] === name);
+  });
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(name + '-page').classList.add('active');
+  if (name === 'registry') loadRegistry();
+  if (name === 'arch') syncArchSelects();
+}
+
+// ─── Canvas ────────────────────────────────────────────────────────────────
+const PX = 19, BORD = 12, LBL_H = 26, FOOT_H = 42;
 
 function setupCanvas() {
   const area = document.getElementById('canvas-area');
-  const canvas = document.getElementById('chip-canvas');
-  canvas.width = area.clientWidth || 700;
-  canvas.height = area.clientHeight || 560;
-  window.addEventListener('resize', () => {
-    canvas.width = area.clientWidth;
-    canvas.height = area.clientHeight;
-    if (currentChip) drawChip(currentChip);
-  });
-}
-
-function buildCells(chip) {
-  const cells = [];
-  for (const u of chip.units) {
-    for (let i = 0; i < u.count; i++) cells.push({ color: u.color, label: u.name.slice(0,3) });
-  }
-  return cells;
+  const cv = document.getElementById('chip-canvas');
+  function resize() { cv.width = area.clientWidth; cv.height = area.clientHeight; if(chip) drawChip(chip); }
+  resize();
+  window.addEventListener('resize', resize);
 }
 
 function darken(hex, f) {
-  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  if (!hex || hex[0]!=='#') return '#334';
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
   return `rgb(${Math.round(r*f)},${Math.round(g*f)},${Math.round(b*f)})`;
 }
 
-function drawChip(chip) {
-  if (!chip) return;
-  currentChip = chip;
-  const canvas = document.getElementById('chip-canvas');
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
+function drawChip(c) {
+  chip = c;
+  const cv = document.getElementById('chip-canvas');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#070910'; ctx.fillRect(0,0,W,H);
+  // bg grid
+  ctx.strokeStyle='#0d1420'; ctx.lineWidth=1;
+  for(let x=0;x<W;x+=36){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+  for(let y=0;y<H;y+=36){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
 
-  // background grid
-  ctx.fillStyle = '#080c14';
-  ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle = '#0d1520';
-  ctx.lineWidth = 1;
-  for (let x=0; x<W; x+=40) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
-  for (let y=0; y<H; y+=40) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+  const cc = c.chip_type_color || '#00ff88';
+  const cells = [];
+  for(const u of c.units) {
+    for(let i=0;i<u.count;i++) cells.push({color:u.color, label:u.name.slice(0,3), novel:u.is_novel});
+  }
+  const COLS = Math.max(8, Math.min(22, Math.ceil(Math.sqrt(cells.length*1.5))));
+  const ROWS = Math.ceil(cells.length/COLS)||1;
+  const chipW = COLS*PX+BORD*2, chipH = ROWS*PX+BORD*2+LBL_H, totalH=chipH+FOOT_H;
+  const ox=Math.floor((W-chipW)/2), oy=Math.floor((H-totalH)/2);
 
-  const chipColor = chip.chip_type_color || '#00ff88';
-  const cells = buildCells(chip);
-  const COLS = Math.max(8, Math.min(20, Math.ceil(Math.sqrt(cells.length * 1.5))));
-  const ROWS = Math.ceil(cells.length / COLS) || 1;
+  // glow border
+  ctx.shadowColor=cc; ctx.shadowBlur=16;
+  ctx.strokeStyle=cc; ctx.lineWidth=1.5;
+  ctx.strokeRect(ox-3,oy-3,chipW+6,totalH+6);
+  ctx.shadowBlur=0;
 
-  const chipW = COLS * PIXEL + BORDER * 2;
-  const chipH = ROWS * PIXEL + BORDER * 2 + LABEL_H;
-  const totalH = chipH + FOOTER_H;
+  ctx.fillStyle='#090d16'; ctx.fillRect(ox,oy,chipW,totalH);
 
-  const ox = Math.floor((W - chipW) / 2);
-  const oy = Math.floor((H - totalH) / 2);
+  // title strip
+  const grad=ctx.createLinearGradient(ox,oy,ox+chipW,oy);
+  grad.addColorStop(0,darken(cc,.22)); grad.addColorStop(1,'#090d16');
+  ctx.fillStyle=grad; ctx.fillRect(ox,oy,chipW,LBL_H);
+  ctx.fillStyle=cc; ctx.font='bold 10px Courier New';
+  ctx.textBaseline='middle'; ctx.textAlign='center';
+  ctx.shadowColor=cc; ctx.shadowBlur=8;
+  ctx.fillText(c.name, ox+chipW/2, oy+LBL_H/2);
+  ctx.shadowBlur=0;
 
-  // outer glow
-  ctx.shadowColor = chipColor;
-  ctx.shadowBlur = 18;
-  ctx.strokeStyle = chipColor;
-  ctx.lineWidth = 2;
-  ctx.strokeRect(ox - 3, oy - 3, chipW + 6, totalH + 6);
-  ctx.shadowBlur = 0;
-
-  // chip body
-  ctx.fillStyle = '#0a0f1c';
-  ctx.fillRect(ox, oy, chipW, totalH);
-
-  // title bar
-  const grad = ctx.createLinearGradient(ox, oy, ox + chipW, oy);
-  grad.addColorStop(0, darken(chipColor, 0.25));
-  grad.addColorStop(1, '#0a0f1c');
-  ctx.fillStyle = grad;
-  ctx.fillRect(ox, oy, chipW, LABEL_H);
-
-  ctx.fillStyle = chipColor;
-  ctx.font = 'bold 11px Courier New';
-  ctx.textBaseline = 'middle';
-  ctx.textAlign = 'center';
-  ctx.shadowColor = chipColor;
-  ctx.shadowBlur = 10;
-  ctx.fillText(chip.name, ox + chipW / 2, oy + LABEL_H / 2);
-  ctx.shadowBlur = 0;
-
-  // cell grid
-  const gx = ox + BORDER;
-  const gy = oy + LABEL_H + BORDER / 2;
-  let idx = 0;
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      const cx = gx + c * PIXEL;
-      const cy = gy + r * PIXEL;
-      if (idx < cells.length) {
-        const cell = cells[idx++];
-        ctx.fillStyle = darken(cell.color, 0.35);
-        ctx.fillRect(cx, cy, PIXEL - 1, PIXEL - 1);
-        ctx.fillStyle = cell.color;
-        ctx.fillRect(cx, cy, PIXEL - 2, PIXEL - 2);
-        // inner highlight
-        ctx.fillStyle = 'rgba(255,255,255,0.08)';
-        ctx.fillRect(cx, cy, PIXEL - 2, 3);
-        // label
-        ctx.fillStyle = darken(cell.color, 2.5);
-        ctx.font = '5px Courier New';
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'top';
-        ctx.fillText(cell.label, cx + 2, cy + 1);
+  // cells
+  const gx=ox+BORD, gy=oy+LBL_H+6;
+  let idx=0;
+  for(let r=0;r<ROWS;r++) {
+    for(let cl=0;cl<COLS;cl++) {
+      const cx=gx+cl*PX, cy=gy+r*PX;
+      if(idx<cells.length) {
+        const cell=cells[idx++];
+        // novel blocks get a subtle purple tint border
+        if(cell.novel) {
+          ctx.fillStyle='#cc44ff44'; ctx.fillRect(cx-1,cy-1,PX+1,PX+1);
+        }
+        ctx.fillStyle=darken(cell.color,.32); ctx.fillRect(cx,cy,PX-1,PX-1);
+        ctx.fillStyle=cell.color; ctx.fillRect(cx,cy,PX-2,PX-2);
+        ctx.fillStyle='rgba(255,255,255,0.07)'; ctx.fillRect(cx,cy,PX-2,3);
+        ctx.fillStyle=darken(cell.color,2.8); ctx.font='5px Courier New';
+        ctx.textAlign='left'; ctx.textBaseline='top';
+        ctx.fillText(cell.label,cx+1,cy+1);
       } else {
-        ctx.fillStyle = '#0d1320';
-        ctx.fillRect(cx, cy, PIXEL - 1, PIXEL - 1);
-        ctx.fillStyle = '#121820';
-        ctx.fillRect(cx, cy, PIXEL - 2, PIXEL - 2);
+        ctx.fillStyle='#0c1220'; ctx.fillRect(cx,cy,PX-1,PX-1);
+        ctx.fillStyle='#101828'; ctx.fillRect(cx,cy,PX-2,PX-2);
       }
     }
   }
 
-  // footer: fitness bar
-  const fy = oy + chipH;
-  ctx.fillStyle = '#0d1420';
-  ctx.fillRect(ox, fy, chipW, FOOTER_H);
-  ctx.strokeStyle = darken(chipColor, 0.4);
-  ctx.lineWidth = 1;
-  ctx.strokeRect(ox, fy, chipW, FOOTER_H);
+  // footer
+  const fy=oy+chipH;
+  ctx.fillStyle='#0c1220'; ctx.fillRect(ox,fy,chipW,FOOT_H);
+  ctx.strokeStyle=darken(cc,.35); ctx.lineWidth=1;
+  ctx.strokeRect(ox,fy,chipW,FOOT_H);
 
-  const barPad = 8;
-  const barY = fy + 10;
-  const barW = chipW - barPad * 2;
-  const barH = 8;
-  const fitPct = Math.min(chip.fitness / 50, 1);
-
-  ctx.fillStyle = '#0a1020';
-  ctx.fillRect(ox + barPad, barY, barW, barH);
-
-  if (fitPct > 0) {
-    const barGrad = ctx.createLinearGradient(ox + barPad, barY, ox + barPad + barW * fitPct, barY);
-    barGrad.addColorStop(0, darken(chipColor, 0.6));
-    barGrad.addColorStop(1, chipColor);
-    ctx.fillStyle = barGrad;
-    ctx.fillRect(ox + barPad, barY, Math.round(barW * fitPct), barH);
+  const bp=7, bW=chipW-bp*2, bY=fy+9, bH=7;
+  const fp=Math.min(c.fitness/50,1);
+  ctx.fillStyle='#0a1020'; ctx.fillRect(ox+bp,bY,bW,bH);
+  if(fp>0){
+    const bg2=ctx.createLinearGradient(ox+bp,bY,ox+bp+bW*fp,bY);
+    bg2.addColorStop(0,darken(cc,.5)); bg2.addColorStop(1,cc);
+    ctx.fillStyle=bg2; ctx.fillRect(ox+bp,bY,Math.round(bW*fp),bH);
   }
+  ctx.fillStyle='#c8d8e8'; ctx.font='8px Courier New';
+  ctx.textAlign='left'; ctx.textBaseline='top';
+  ctx.fillText(`Fitness:${c.fitness.toFixed(3)} | ${c.chip_type} ${c.bit_width}-bit | ${c.core_count}×core | Gen ${c.generation} | Novel:${c.novel_block_count||0}`,
+    ox+bp, fy+20);
 
-  ctx.fillStyle = '#d0e0f0';
-  ctx.font = '9px Courier New';
-  ctx.textAlign = 'left';
-  ctx.textBaseline = 'top';
-  ctx.fillText(
-    `Fitness: ${chip.fitness.toFixed(3)}  |  ${chip.chip_type} ${chip.bit_width}-bit  |  ${chip.core_count} core(s)  |  Gen ${chip.generation}`,
-    ox + barPad, fy + 22
-  );
-
-  // draw pin legs on border
-  ctx.fillStyle = darken(chipColor, 0.6);
-  const pinStep = Math.max(6, Math.floor(chipW / 12));
-  for (let px = ox + pinStep; px < ox + chipW - 4; px += pinStep) {
-    ctx.fillRect(px, oy - 5, 3, 5);
-    ctx.fillRect(px, oy + totalH, 3, 5);
-  }
-  const pinStepH = Math.max(6, Math.floor(totalH / 8));
-  for (let py = oy + pinStepH; py < oy + totalH - 4; py += pinStepH) {
-    ctx.fillRect(ox - 5, py, 5, 3);
-    ctx.fillRect(ox + chipW, py, 5, 3);
-  }
+  // pin legs
+  ctx.fillStyle=darken(cc,.5);
+  const pinS=Math.max(8,Math.floor(chipW/10));
+  for(let px=ox+pinS;px<ox+chipW-4;px+=pinS){ctx.fillRect(px,oy-5,3,5);ctx.fillRect(px,oy+totalH,3,5)}
+  const pinSH=Math.max(8,Math.floor(totalH/6));
+  for(let py=oy+pinSH;py<oy+totalH-4;py+=pinSH){ctx.fillRect(ox-5,py,5,3);ctx.fillRect(ox+chipW,py,5,3)}
 }
 
-// ─── API calls ───────────────────────────────────────────────────────────────
-async function apiFetch(url, method='GET', body=null) {
-  const opts = { method, headers: {'Content-Type':'application/json'} };
-  if (body) opts.body = JSON.stringify(body);
-  const res = await fetch(url, opts);
-  return res.json();
+// ─── API helpers ───────────────────────────────────────────────────────────
+async function api(url, method='GET', body=null) {
+  const opts={method,headers:{'Content-Type':'application/json'}};
+  if(body) opts.body=JSON.stringify(body);
+  const r=await fetch(url,opts);
+  return r.json();
 }
 
+function setStatus(msg) { document.getElementById('status').textContent=msg; }
+
+function showOverlay(msg, ms=2200) {
+  const el=document.getElementById('evo-overlay');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),ms);
+}
+
+// ─── Chip & Evolution ──────────────────────────────────────────────────────
 async function generateChip() {
-  setStatus('Generating chip...');
+  setStatus('Generating...');
   const data = {
     chip_type: document.getElementById('chip-type').value,
     bit_width: selectedBW,
@@ -521,217 +568,295 @@ async function generateChip() {
     pipeline_stages: parseInt(document.getElementById('pipeline').value),
     cache_kb: parseInt(document.getElementById('cache-kb').value),
   };
-  const res = await apiFetch('/api/generate', 'POST', data);
-  if (res.success) {
-    updateUI(res.chip);
-    setStatus(`Generated: ${res.chip.name}`);
+  if(chip && chip.architecture) {
+    // preserve arch settings if already set
+    Object.assign(data, {
+      isa: document.getElementById('arch-isa').value,
+      interconnect: document.getElementById('arch-ic').value,
+      memory_model: document.getElementById('arch-mem').value,
+      execution_model: document.getElementById('arch-exec').value,
+      pipeline_arch: document.getElementById('arch-pipe').value,
+      voltage_domain: document.getElementById('arch-volt').value,
+      process_node: document.getElementById('arch-node').value,
+      clock_topology: document.getElementById('arch-clk').value,
+    });
   }
+  const res = await api('/api/generate','POST',data);
+  if(res.success) { updateUI(res.chip); setStatus(`Generated: ${res.chip.name}`); }
 }
 
 async function mutateOnce() {
-  if (!currentChip) return;
-  const strength = parseFloat(document.getElementById('strength').value);
-  const res = await apiFetch('/api/mutate_once', 'POST', { strength });
-  if (res.success) {
+  if(!chip) return;
+  const res = await api('/api/mutate_once','POST',{strength:parseFloat(document.getElementById('strength').value)});
+  if(res.success) {
     updateUI(res.chip, res.log);
-    setStatus(`Mutation: ${res.desc} | reward: ${res.reward >= 0 ? '+' : ''}${res.reward.toFixed(4)}`);
-    updateReward(res.reward);
+    setStatus(`Mutation: ${res.desc} | reward ${res.reward>=0?'+':''}${res.reward.toFixed(4)}`);
+    document.getElementById('m-rew').textContent = (res.reward>=0?'+':'')+res.reward.toFixed(4);
+    document.getElementById('m-disc').textContent = res.discoveries?.length || 0;
+    if(res.discoveries?.length) showOverlay(`⬟ Discovered: ${res.discoveries[res.discoveries.length-1]}`);
   }
 }
 
 async function startEvolve() {
-  if (!currentChip || evolving) return;
-  evolving = true;
-  document.getElementById('btn-evolve').disabled = true;
-  document.getElementById('btn-stop').disabled = false;
-  document.getElementById('rl-dot').classList.add('active');
-
-  const steps = parseInt(document.getElementById('evo-steps').value);
-  const strength = parseFloat(document.getElementById('strength').value);
-  await apiFetch('/api/evolve/start', 'POST', { steps, strength });
-
-  pollTimer = setInterval(pollStatus, 300);
+  if(!chip||evolving) return;
+  evolving=true;
+  document.getElementById('btn-evo').disabled=true;
+  document.getElementById('btn-stop').disabled=false;
+  document.getElementById('rl-dot').classList.add('on');
+  const steps=parseInt(document.getElementById('evo-steps').value);
+  const strength=parseFloat(document.getElementById('strength').value);
+  await api('/api/evolve/start','POST',{steps,strength});
+  pollTimer=setInterval(pollStatus,350);
 }
 
 async function stopEvolve() {
-  await apiFetch('/api/evolve/stop', 'POST');
-  clearInterval(pollTimer);
-  evolving = false;
-  document.getElementById('btn-evolve').disabled = false;
-  document.getElementById('btn-stop').disabled = true;
-  document.getElementById('rl-dot').classList.remove('active');
-  setStatus('Evolution stopped.');
+  await api('/api/evolve/stop','POST');
+  clearInterval(pollTimer); finishEvolve();
+}
+
+function finishEvolve() {
+  evolving=false;
+  document.getElementById('btn-evo').disabled=false;
+  document.getElementById('btn-stop').disabled=true;
+  document.getElementById('rl-dot').classList.remove('on');
 }
 
 async function pollStatus() {
-  const res = await apiFetch('/api/evolve/status');
-  if (res.chip) updateUI(res.chip, res.log);
-  if (res.reward !== undefined) updateReward(res.reward);
-  updateRLLabel(res.epsilon, res.total_steps);
+  const res = await api('/api/evolve/status');
+  if(res.chip) updateUI(res.chip, res.log);
+  if(res.reward!==undefined) document.getElementById('m-rew').textContent=(res.reward>=0?'+':'')+res.reward.toFixed(4);
+  if(res.epsilon!==undefined) {
+    document.getElementById('rl-lbl').textContent=`RL Agent — ε=${res.epsilon.toFixed(3)}`;
+    document.getElementById('m-rl').textContent=res.total_steps||0;
+  }
+  if(res.population) updatePopulation(res.population);
+  if(res.discoveries) document.getElementById('m-disc').textContent=res.discoveries.length;
 
-  if (!res.evolving && evolving) {
-    clearInterval(pollTimer);
-    evolving = false;
-    document.getElementById('btn-evolve').disabled = false;
-    document.getElementById('btn-stop').disabled = true;
-    document.getElementById('rl-dot').classList.remove('active');
-    setStatus(`Evolution complete. Fitness: ${res.chip?.fitness?.toFixed(4)}`);
-    showOverlay('Evolution complete ✓', 2000);
+  if(!res.evolving && evolving) {
+    clearInterval(pollTimer); finishEvolve();
+    setStatus(`Evolution complete — Fitness: ${res.chip?.fitness?.toFixed(4)}`);
+    showOverlay('Evolution complete ✓');
+    if(res.discoveries?.length) showOverlay(`⬟ Novel blocks: ${res.discoveries.join(', ')}`);
   }
 }
 
-async function resetPopulation() {
-  await apiFetch('/api/reset', 'POST');
+async function resetPop() {
+  await api('/api/reset','POST');
   setStatus('Population reset.');
 }
 
+// ─── UI updates ────────────────────────────────────────────────────────────
+function updateUI(c, log) {
+  if(!c) return;
+  chip=c; drawChip(c);
+  document.getElementById('m-fit').textContent = c.fitness.toFixed(4);
+  document.getElementById('m-gen').textContent = c.generation;
+  document.getElementById('m-novel').textContent = c.novel_block_count||0;
+  const fp=Math.min(c.fitness/50*100,100);
+  document.getElementById('fitness-fill').style.width=fp+'%';
+  document.getElementById('fitness-fill').style.background=c.chip_type_color||'#00ff88';
+
+  // unit list
+  const maxC=Math.max(1,...c.units.map(u=>u.count));
+  document.getElementById('unit-list').innerHTML=c.units.map(u=>`
+    <div class="ur">
+      <div class="usw" style="background:${u.color}"></div>
+      <span class="un">${u.name}</span>
+      <span class="uc">×${u.count}</span>
+      ${u.is_novel?'<span class="novel-badge">NEW</span>':''}
+      <div class="ub-w"><div class="ub" style="width:${Math.round(u.count/maxC*100)}%;background:${u.color}"></div></div>
+    </div>`).join('');
+
+  if(log) {
+    document.getElementById('evo-log').innerHTML=log.map(l=>`
+      <div class="ll ${(l.includes('(+')||l.includes('reward 0'))?'lp':'ln'}">${l}</div>`).join('');
+    document.getElementById('evo-log').scrollTop=9999;
+  }
+
+  // mutation history
+  if(c.mutation_history) {
+    document.getElementById('mut-hist').innerHTML=
+      c.mutation_history.slice(-12).reverse().map(m=>`<div style="padding:1px 0;border-bottom:1px solid #0f1820">${m}</div>`).join('');
+  }
+
+  // arch mini
+  if(c.architecture) {
+    const a=c.architecture;
+    document.getElementById('arch-mini').innerHTML=
+      `<div><span style="color:var(--dim)">ISA: </span>${a.isa}</div>
+       <div><span style="color:var(--dim)">Exec: </span>${a.execution_model}</div>
+       <div><span style="color:var(--dim)">Mem: </span>${a.memory_model}</div>
+       <div><span style="color:var(--dim)">Node: </span>${a.process_node}</div>
+       <div><span style="color:var(--dim)">Freq: </span>${a.freq_ghz||'?'} GHz</div>`;
+    updateArchMetrics(a, c.fitness);
+  }
+}
+
+function updatePopulation(pop) {
+  document.getElementById('pop-list').innerHTML=pop.map((p,i)=>`
+    <div class="pop-row ${i===0?'best':''}">
+      <div class="pop-dot" style="background:${p.color}"></div>
+      <span class="pop-name">${p.name}</span>
+      <span class="pop-fit">${p.fitness.toFixed(3)}</span>
+      ${p.novel?`<span class="pop-nb">⬟${p.novel}</span>`:''}
+    </div>`).join('');
+}
+
+// ─── Architecture ──────────────────────────────────────────────────────────
+function syncArchSelects() {
+  if(!chip?.architecture) return;
+  const a=chip.architecture;
+  const map={isa:'arch-isa',execution_model:'arch-exec',pipeline_arch:'arch-pipe',
+             memory_model:'arch-mem',interconnect:'arch-ic',process_node:'arch-node',
+             voltage_domain:'arch-volt',clock_topology:'arch-clk'};
+  for(const [key,id] of Object.entries(map)) {
+    const sel=document.getElementById(id);
+    if(sel && a[key]) sel.value=a[key];
+  }
+  updateArchMetrics(a, chip.fitness);
+}
+
+async function archUpdate() {
+  const data={
+    isa:document.getElementById('arch-isa').value,
+    execution_model:document.getElementById('arch-exec').value,
+    pipeline_arch:document.getElementById('arch-pipe').value,
+    memory_model:document.getElementById('arch-mem').value,
+    interconnect:document.getElementById('arch-ic').value,
+    process_node:document.getElementById('arch-node').value,
+    voltage_domain:document.getElementById('arch-volt').value,
+    clock_topology:document.getElementById('arch-clk').value,
+  };
+  const res=await api('/api/architecture/update','POST',data);
+  if(res.success) { chip=res.chip; updateArchMetrics(res.architecture, res.chip.fitness); drawChip(res.chip); document.getElementById('m-fit').textContent=res.chip.fitness.toFixed(4); }
+}
+
+function updateArchMetrics(a, fitness) {
+  document.getElementById('da-area').textContent  = (a.area_mm2||0).toFixed(3)+' mm²';
+  document.getElementById('da-power').textContent = (a.power_mw||0).toFixed(1)+' mW';
+  document.getElementById('da-freq').textContent  = (a.freq_ghz||0).toFixed(2)+' GHz';
+  document.getElementById('da-ipc').textContent   = (a.ipc||0).toFixed(2);
+  document.getElementById('da-fit').textContent   = fitness?.toFixed(4)||'—';
+}
+
+// ─── Code generation ───────────────────────────────────────────────────────
+async function loadCode(lang) {
+  currentLang=lang;
+  document.getElementById('code-meta').textContent='Loading...';
+  document.getElementById('code-pre').textContent='Generating '+lang+' code...';
+  const res=await api('/api/codegen/'+lang);
+  if(res.error) { document.getElementById('code-pre').textContent='Error: '+res.error; return; }
+  currentCode=res.code;
+  document.getElementById('code-meta').textContent=`${res.chip_name} | ${res.lines} lines`;
+  document.getElementById('code-pre').textContent=res.code;
+}
+
+function openCodegen(lang) {
+  switchTab('codegen');
+  loadCode(lang);
+}
+
+async function copyCode() {
+  if(!currentCode) return;
+  await navigator.clipboard.writeText(currentCode);
+  const btn=document.getElementById('copy-btn');
+  btn.textContent='Copied!'; setTimeout(()=>btn.textContent='Copy',1500);
+}
+
+function downloadCode() {
+  if(!currentCode||!chip) return;
+  const ext={assembly:'s',vhdl:'vhd',verilog:'v'}[currentLang]||'txt';
+  const blob=new Blob([currentCode],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`${chip.name}.${ext}`;
+  a.click();
+}
+
+// ─── Block Registry ────────────────────────────────────────────────────────
+async function loadRegistry() {
+  const res=await api('/api/blocks/registry');
+  const grid=document.getElementById('registry-grid');
+  document.getElementById('reg-count').textContent=`${res.blocks.length} blocks discovered`;
+  if(!res.blocks.length) {
+    grid.innerHTML='<div style="color:var(--dim);font-size:10px">No novel blocks discovered yet. Evolve chips to invent new blocks!</div>';
+    return;
+  }
+  grid.innerHTML=res.blocks.map(b=>`
+    <div class="reg-card" style="border-left-color:${b.color}">
+      <div class="rn" style="color:${b.color}">${b.name}</div>
+      <div class="rw">Weight: ${b.fitness_weight.toFixed(3)} | Power: ${b.power_factor.toFixed(4)}</div>
+      <div class="rc">Capabilities: ${b.capabilities.join(', ')}</div>
+      <div class="rd">${b.description}</div>
+      <div style="font-size:7px;color:var(--dim);margin-top:4px">
+        Gen ${b.generation_discovered} | Used ${b.times_used}×${b.discovery_chip?' | from '+b.discovery_chip:''}
+      </div>
+    </div>`).join('');
+}
+
+async function inventBlock() {
+  const res=await api('/api/blocks/invent','POST');
+  if(res.success) {
+    setStatus(`Invented block: ${res.block.name} (w=${res.block.fitness_weight})`);
+    loadRegistry();
+    showOverlay(`⬟ Invented: ${res.block.name}`);
+  }
+}
+
+// ─── Save / Load ───────────────────────────────────────────────────────────
 async function saveState() {
-  const name = prompt('Save name (blank = auto-timestamp):') || '';
-  const res = await apiFetch('/api/save', 'POST', { name });
-  if (res.success) alert(`Saved: ${res.path}`);
+  const name=prompt('Save name (blank = auto-timestamp):')||'';
+  const res=await api('/api/save','POST',{name});
+  if(res.success) alert(`Saved: ${res.path}`);
 }
 
 async function showLoadModal() {
-  const res = await apiFetch('/api/saves');
-  openModal('📂 Load Save State', () => {
-    if (!res.saves.length) return '<p style="color:var(--dim)">No saves found.</p>';
-    return res.saves.map(s =>
-      `<div class="hof-row" onclick="loadSave('${s}')" style="cursor:pointer">
-        <span class="hof-rank">💾</span>
-        <span class="hof-name">${s}</span>
-       </div>`
-    ).join('');
+  const res=await api('/api/saves');
+  openModal('📂 Load Save State', ()=>{
+    if(!res.saves.length) return '<p style="color:var(--dim)">No saves found.</p>';
+    return res.saves.map(s=>`
+      <div class="hof-row" onclick="loadSave('${s}')">
+        <span class="hr">💾</span><span class="hn">${s}</span>
+      </div>`).join('');
   });
 }
 
 async function loadSave(filename) {
   closeModal();
-  const res = await apiFetch('/api/load', 'POST', { filename });
-  if (res.success) {
-    updateUI(res.chip);
-    setStatus(`Loaded: ${filename}`);
-  } else {
-    alert('Failed to load: ' + (res.error || 'unknown error'));
-  }
+  const res=await api('/api/load','POST',{filename});
+  if(res.success) { updateUI(res.chip); setStatus(`Loaded: ${filename}`); }
 }
 
 async function showHoF() {
-  const res = await apiFetch('/api/hall_of_fame');
-  openModal('🏆 Hall of Fame — Top 20 Evolved Chips', () => {
-    if (!res.chips.length) return '<p style="color:var(--dim)">No chips yet. Evolve chips to fill this!</p>';
-    return `<table style="width:100%;font-size:10px;border-collapse:collapse">
-      <tr style="color:var(--dim)"><th>#</th><th>Name</th><th>Type</th><th>Bits</th><th>Fitness</th><th>Gen</th></tr>
-      ${res.chips.map((c,i) => `
-        <tr class="hof-row" onclick="viewHoFChip(${i})" style="cursor:pointer">
-          <td class="hof-rank">${i+1}</td>
-          <td class="hof-name" style="font-size:8px">${c.name}</td>
-          <td class="hof-type">${c.chip_type}</td>
-          <td style="color:var(--accent2)">${c.bit_width}</td>
-          <td class="hof-fit">${c.fitness.toFixed(4)}</td>
+  const res=await api('/api/hall_of_fame');
+  openModal('🏆 Hall of Fame', ()=>{
+    if(!res.chips.length) return '<p style="color:var(--dim)">No chips yet. Evolve to populate!</p>';
+    return `<table style="width:100%;font-size:9px;border-collapse:collapse">
+      <tr style="color:var(--dim)"><th>#</th><th>Name</th><th>Type</th><th>Bits</th><th>Fitness</th><th>Novel</th><th>Gen</th></tr>
+      ${res.chips.map((c,i)=>`
+        <tr class="hof-row" onclick="viewHoFChip(${i})">
+          <td class="hr">${i+1}</td>
+          <td class="hn" style="font-size:8px">${c.name}</td>
+          <td class="ht">${c.chip_type}</td>
+          <td style="color:var(--a2)">${c.bit_width}</td>
+          <td class="hf">${c.fitness.toFixed(4)}</td>
+          <td style="color:var(--purple)">${c.novel_block_count||0}</td>
           <td style="color:var(--dim)">${c.generation}</td>
         </tr>`).join('')}
     </table>`;
   });
-  window._hofChips = res.chips;
+  window._hofChips=res.chips;
 }
 
-function viewHoFChip(idx) {
-  if (!window._hofChips) return;
-  closeModal();
-  drawChip(window._hofChips[idx]);
-  updateChipInfo(window._hofChips[idx]);
-  setStatus(`Viewing HoF chip: ${window._hofChips[idx].name}`);
-}
+function viewHoFChip(i) { if(!window._hofChips) return; closeModal(); drawChip(window._hofChips[i]); chip=window._hofChips[i]; updateUI(chip); setStatus(`HoF chip: ${chip.name}`); }
 
-// ─── UI Updates ──────────────────────────────────────────────────────────────
-function updateUI(chip, log) {
-  if (!chip) return;
-  currentChip = chip;
-  drawChip(chip);
-  updateChipInfo(chip);
-  if (log) updateLog(log);
-}
-
-function updateChipInfo(chip) {
-  document.getElementById('m-fitness').textContent = chip.fitness.toFixed(4);
-  document.getElementById('m-gen').textContent = chip.generation;
-
-  const fitPct = Math.min(chip.fitness / 50 * 100, 100);
-  document.getElementById('fitness-bar').style.width = fitPct + '%';
-  document.getElementById('fitness-bar').style.background = chip.chip_type_color || '#00ff88';
-
-  // unit list
-  const maxCount = Math.max(1, ...chip.units.map(u => u.count));
-  document.getElementById('unit-list').innerHTML = chip.units.map(u => `
-    <div class="unit-row">
-      <div class="unit-swatch" style="background:${u.color}"></div>
-      <span class="unit-name">${u.name}</span>
-      <span class="unit-count">×${u.count}</span>
-      <div class="unit-bar-wrap">
-        <div class="unit-bar" style="width:${Math.round(u.count/maxCount*100)}%;background:${u.color}"></div>
-      </div>
-    </div>`).join('');
-
-  // best chip info
-  document.getElementById('best-chip-info').innerHTML = `
-    <div style="color:${chip.chip_type_color}">${chip.name}</div>
-    <div>Fitness: ${chip.fitness.toFixed(4)}</div>
-    <div>${chip.bit_width}-bit | ${chip.core_count} cores | ${chip.pipeline_stages}-stage pipeline</div>
-    <div>${chip.cache_kb} KB cache</div>`;
-
-  // mutation history
-  if (chip.mutation_history) {
-    document.getElementById('mut-history').innerHTML =
-      chip.mutation_history.slice(-10).reverse().map(m =>
-        `<div style="padding:1px 0;border-bottom:1px solid #111;">${m}</div>`
-      ).join('');
-  }
-}
-
-function updateReward(reward) {
-  const el = document.getElementById('m-reward');
-  el.textContent = (reward >= 0 ? '+' : '') + reward.toFixed(4);
-  el.className = 'val ' + (reward >= 0 ? 'val' : 'orange');
-}
-
-function updateRLLabel(epsilon, steps) {
-  if (epsilon !== undefined) {
-    document.getElementById('rl-label').textContent = `RL Agent active — ε=${epsilon.toFixed(3)}`;
-    document.getElementById('m-rl-steps').textContent = steps || 0;
-  }
-}
-
-function updateLog(lines) {
-  const el = document.getElementById('evo-log');
-  el.innerHTML = lines.map(l => {
-    const isPos = l.includes('reward +') || l.includes('reward 0');
-    return `<div class="log-line ${isPos ? 'log-pos' : 'log-neg'}">${l}</div>`;
-  }).join('');
-  el.scrollTop = el.scrollHeight;
-}
-
-function setStatus(msg) {
-  document.getElementById('status-bar').textContent = msg;
-}
-
-function showOverlay(msg, duration=2000) {
-  const el = document.getElementById('canvas-overlay');
-  el.textContent = msg;
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), duration);
-}
-
-// ─── Modal ───────────────────────────────────────────────────────────────────
 function openModal(title, bodyFn) {
-  document.getElementById('modal-title').textContent = title;
-  document.getElementById('modal-body').innerHTML = bodyFn();
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-body').innerHTML=bodyFn();
   document.getElementById('modal-bg').classList.add('open');
 }
-function closeModal() {
-  document.getElementById('modal-bg').classList.remove('open');
-}
+function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
 
-// ─── Boot ────────────────────────────────────────────────────────────────────
 init();
 </script>
 </body>

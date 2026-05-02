@@ -1,12 +1,12 @@
 """
-Chip data models for the RISC-V Chip Generator.
-Supports RISC-V (8-128 bit) and novel processor types.
+Chip data models — RISC-V Chip Generator.
+Now includes ChipArchitecture and novel block support.
 """
 
 import random
 import math
-from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Optional, Tuple
+from dataclasses import dataclass, field
+from typing import List, Optional
 from enum import Enum
 
 
@@ -91,17 +91,20 @@ class UnitBlock:
     name: str
     count: int
     color: str = ""
+    is_novel: bool = False
 
     def __post_init__(self):
         if not self.color:
             self.color = UNIT_COLORS.get(self.name, "#555555")
 
     def to_dict(self):
-        return {"name": self.name, "count": self.count, "color": self.color}
+        return {"name": self.name, "count": self.count,
+                "color": self.color, "is_novel": self.is_novel}
 
     @staticmethod
     def from_dict(d):
-        return UnitBlock(d["name"], d["count"], d.get("color", ""))
+        return UnitBlock(d["name"], d["count"],
+                         d.get("color", ""), d.get("is_novel", False))
 
 
 @dataclass
@@ -116,6 +119,8 @@ class Chip:
     fitness: float = 0.0
     name: str = ""
     mutation_history: List[str] = field(default_factory=list)
+    # architecture stored as dict so chip.py stays architecture.py-free at import time
+    architecture: Optional[dict] = None
 
     def __post_init__(self):
         if not self.name:
@@ -201,21 +206,28 @@ class Chip:
             ]
 
     def compute_fitness(self) -> float:
+        from novel_blocks import BlockRegistry
+        registry = BlockRegistry.get()
+
         perf = 0.0
+        base_weights = {
+            "ALU": 2.0, "FPU": 1.8, "TENSOR": 3.0, "SIMD": 2.5,
+            "VEC": 2.2, "MUL": 1.5, "ACCEL": 2.8, "CACHE": 1.2,
+            "MEM": 1.0, "DMA": 0.8, "CTRL": 0.5, "IO": 0.4,
+            "REG": 0.6, "FETCH": 0.5, "DECODE": 0.5, "RETIRE": 0.5,
+            "PRED": 0.7, "SCHED": 0.6, "INT": 0.9,
+        }
         for u in self.units:
-            weights = {
-                "ALU": 2.0, "FPU": 1.8, "TENSOR": 3.0, "SIMD": 2.5,
-                "VEC": 2.2, "MUL": 1.5, "ACCEL": 2.8, "CACHE": 1.2,
-                "MEM": 1.0, "DMA": 0.8, "CTRL": 0.5, "IO": 0.4,
-                "REG": 0.6, "FETCH": 0.5, "DECODE": 0.5, "RETIRE": 0.5,
-                "PRED": 0.7, "SCHED": 0.6, "INT": 0.9,
-            }
-            w = weights.get(u.name, 1.0)
+            # novel blocks use registry weight; base blocks use hardcoded weight
+            if u.is_novel:
+                w = registry.get_weight(u.name)
+            else:
+                w = base_weights.get(u.name, 1.0)
             perf += u.count * w
 
-        bw_bonus = math.log2(max(8, self.bit_width)) / math.log2(128)
-        core_bonus = math.log2(max(1, self.core_count) + 1)
-        pipe_bonus = min(self.pipeline_stages / 20.0, 1.0)
+        bw_bonus    = math.log2(max(8, self.bit_width)) / math.log2(128)
+        core_bonus  = math.log2(max(1, self.core_count) + 1)
+        pipe_bonus  = min(self.pipeline_stages / 20.0, 1.0)
         cache_bonus = math.log2(max(1, self.cache_kb) + 1) / 8.0
 
         power_cost = (
@@ -224,13 +236,26 @@ class Chip:
             + self.bit_width * 0.005
         )
 
+        # architecture bonus
+        arch_bonus = 1.0
+        if self.architecture:
+            try:
+                from architecture import ChipArchitecture
+                arch_obj = ChipArchitecture.from_dict(self.architecture)
+                arch_bonus = arch_obj.arch_fitness_bonus()
+            except Exception:
+                pass
+
         raw = perf * (1 + bw_bonus) * (1 + core_bonus) * (1 + pipe_bonus) * (1 + cache_bonus)
         efficiency = raw / max(power_cost, 0.1)
-        self.fitness = round(efficiency, 4)
+        self.fitness = round(efficiency * arch_bonus, 4)
         return self.fitness
 
     def total_cells(self) -> int:
         return sum(u.count for u in self.units)
+
+    def novel_block_count(self) -> int:
+        return sum(1 for u in self.units if u.is_novel)
 
     def to_dict(self) -> dict:
         return {
@@ -244,6 +269,7 @@ class Chip:
             "fitness": self.fitness,
             "name": self.name,
             "mutation_history": self.mutation_history,
+            "architecture": self.architecture,
         }
 
     @staticmethod
@@ -260,6 +286,7 @@ class Chip:
             fitness=d["fitness"],
             name=d["name"],
             mutation_history=d.get("mutation_history", []),
+            architecture=d.get("architecture"),
         )
         return c
 
@@ -273,6 +300,7 @@ class Chip:
             f"Cache:      {self.cache_kb} KB",
             f"Fitness:    {self.fitness:.4f}",
             f"Generation: {self.generation}",
+            f"Novel Blks: {self.novel_block_count()}",
             f"Units:      {len(self.units)} types, {self.total_cells()} blocks",
         ]
         return "\n".join(lines)
