@@ -1,0 +1,657 @@
+{
+  "version": 2,
+  "saved_at": "2026-05-02 20:13:52",
+  "chip": {
+    "chip_type": "RISC-V",
+    "bit_width": 32,
+    "core_count": 1,
+    "pipeline_stages": 5,
+    "cache_kb": 64,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "DECODE",
+        "count": 1,
+        "color": "#aaffaa"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      }
+    ],
+    "generation": 0,
+    "fitness": 112.3079,
+    "name": "RISC-V-32bit-gen0",
+    "mutation_history": []
+  },
+  "engine": {
+    "population": [
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 64,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 4,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          }
+        ],
+        "generation": 1,
+        "fitness": 124.208,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Merged CACHE into ALU"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 7,
+        "cache_kb": 64,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          }
+        ],
+        "generation": 1,
+        "fitness": 121.2925,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Pipeline -> 7 stages"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 64,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "STORE",
+            "count": 2,
+            "color": "#ff6688"
+          }
+        ],
+        "generation": 1,
+        "fitness": 115.7251,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Added STOREx2"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 64,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          }
+        ],
+        "generation": 1,
+        "fitness": 114.2447,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Removed CTRL"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 64,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          }
+        ],
+        "generation": 0,
+        "fitness": 112.3079,
+        "name": "RISC-V-32bit-gen0",
+        "mutation_history": []
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 64,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 1,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          }
+        ],
+        "generation": 1,
+        "fitness": 109.3328,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Split CACHE -> new DMAx1"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 32,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          }
+        ],
+        "generation": 1,
+        "fitness": 104.4751,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Cache -> 32 KB"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 32,
+        "core_count": 1,
+        "pipeline_stages": 5,
+        "cache_kb": 32,
+        "units": [
+          {
+            "name": "FETCH",
+            "count": 1,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "DECODE",
+            "count": 1,
+            "color": "#aaffaa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 1,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          }
+        ],
+        "generation": 1,
+        "fitness": 104.4751,
+        "name": "RISC-V-32bit-gen1",
+        "mutation_history": [
+          "Cache -> 32 KB"
+        ]
+      }
+    ],
+    "best_chip": {
+      "chip_type": "RISC-V",
+      "bit_width": 32,
+      "core_count": 1,
+      "pipeline_stages": 5,
+      "cache_kb": 64,
+      "units": [
+        {
+          "name": "FETCH",
+          "count": 1,
+          "color": "#ffaaaa"
+        },
+        {
+          "name": "DECODE",
+          "count": 1,
+          "color": "#aaffaa"
+        },
+        {
+          "name": "ALU",
+          "count": 4,
+          "color": "#00ff88"
+        },
+        {
+          "name": "FPU",
+          "count": 1,
+          "color": "#00ccff"
+        },
+        {
+          "name": "MUL",
+          "count": 1,
+          "color": "#ffcc00"
+        },
+        {
+          "name": "MEM",
+          "count": 1,
+          "color": "#ff4466"
+        },
+        {
+          "name": "CTRL",
+          "count": 1,
+          "color": "#44ffcc"
+        },
+        {
+          "name": "REG",
+          "count": 4,
+          "color": "#44aa88"
+        },
+        {
+          "name": "RETIRE",
+          "count": 1,
+          "color": "#aaaaff"
+        }
+      ],
+      "generation": 1,
+      "fitness": 124.208,
+      "name": "RISC-V-32bit-gen1",
+      "mutation_history": [
+        "Merged CACHE into ALU"
+      ]
+    },
+    "generation": 0,
+    "evolution_log": [],
+    "agent": {
+      "q_table": {},
+      "epsilon": 0.9,
+      "total_steps": 0,
+      "reward_history": []
+    }
+  }
+}
