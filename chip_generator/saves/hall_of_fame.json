@@ -1,0 +1,2766 @@
+[
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 61,
+    "pipeline_stages": 32,
+    "cache_kb": 6144,
+    "units": [
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 3,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 3,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 5,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "STORE",
+        "count": 4,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 5,
+        "color": "#00ccff"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 1,
+        "color": "#ffff44"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 4,
+        "color": "#888888"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "PRED",
+        "count": 1,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "INT",
+        "count": 1,
+        "color": "#ff4400"
+      },
+      {
+        "name": "MUL",
+        "count": 2,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "SIMD",
+        "count": 2,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "ALU",
+        "count": 1,
+        "color": "#00ff88"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "MEM",
+        "count": 2,
+        "color": "#ff4466"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
+      }
+    ],
+    "generation": 94,
+    "fitness": 1150.7299,
+    "name": "RISC-V-128bit-gen94",
+    "mutation_history": [
+      "Added BUSx1",
+      "Added ALUx2",
+      "Added DIVx1",
+      "Added PREDx1",
+      "Novel unit: ACCELx3",
+      "Added STOREx1",
+      "Added DMAx1",
+      "Merged PRED into FPU",
+      "Merged CTRL into ACCEL",
+      "Added PREDx1",
+      "Scaled BUS by +2",
+      "Added TENSORx2",
+      "Added VECx1",
+      "Scaled FPU by +3",
+      "Cores -> 61",
+      "Added BUSx1",
+      "Added INTx1",
+      "Added MULx2",
+      "Added LOADx2",
+      "Novel unit: ACCELx4",
+      "Added SIMDx2",
+      "Added ALUx1",
+      "Scaled SCHED by -1",
+      "Added MULx1",
+      "Added MEMx2",
+      "Added TENSORx2",
+      "Added ALUx2",
+      "Added DMAx1",
+      "Added ALUx2",
+      "Added FPUx2"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 61,
+    "pipeline_stages": 32,
+    "cache_kb": 6144,
+    "units": [
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 3,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 3,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 5,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "STORE",
+        "count": 4,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 5,
+        "color": "#00ccff"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 1,
+        "color": "#ffff44"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 4,
+        "color": "#888888"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "PRED",
+        "count": 1,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "INT",
+        "count": 1,
+        "color": "#ff4400"
+      },
+      {
+        "name": "MUL",
+        "count": 2,
+        "color": "#ffcc00"
+      }
+    ],
+    "generation": 82,
+    "fitness": 1008.4543,
+    "name": "RISC-V-128bit-gen82",
+    "mutation_history": [
+      "Added PREDx2",
+      "Added SCHEDx2",
+      "Split LOAD -> new ACCELx1",
+      "Added VECx1",
+      "Merged FETCH into FPU",
+      "Removed CTRL",
+      "Merged RETIRE into MUL",
+      "Added SCHEDx2",
+      "Added VECx2",
+      "Merged INT into TENSOR",
+      "Cache -> 6144 KB",
+      "Added BUSx2",
+      "Added BUSx1",
+      "Added ALUx2",
+      "Added DIVx1",
+      "Added PREDx1",
+      "Novel unit: ACCELx3",
+      "Added STOREx1",
+      "Added DMAx1",
+      "Merged PRED into FPU",
+      "Merged CTRL into ACCEL",
+      "Added PREDx1",
+      "Scaled BUS by +2",
+      "Added TENSORx2",
+      "Added VECx1",
+      "Scaled FPU by +3",
+      "Cores -> 61",
+      "Added BUSx1",
+      "Added INTx1",
+      "Added MULx2"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 62,
+    "pipeline_stages": 32,
+    "cache_kb": 6144,
+    "units": [
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 3,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 3,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 5,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "STORE",
+        "count": 4,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 1,
+        "color": "#ffff44"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "PRED",
+        "count": 1,
+        "color": "#ffaa44"
+      }
+    ],
+    "generation": 74,
+    "fitness": 933.1774,
+    "name": "RISC-V-128bit-gen74",
+    "mutation_history": [
+      "Added DIVx1",
+      "Novel unit: LOADx3",
+      "Added CTRLx2",
+      "Added FPUx1",
+      "Added VECx1",
+      "Cache -> 4096 KB",
+      "Scaled STORE by +1",
+      "Merged BUS into CACHE",
+      "Added PREDx2",
+      "Added SCHEDx2",
+      "Split LOAD -> new ACCELx1",
+      "Added VECx1",
+      "Merged FETCH into FPU",
+      "Removed CTRL",
+      "Merged RETIRE into MUL",
+      "Added SCHEDx2",
+      "Added VECx2",
+      "Merged INT into TENSOR",
+      "Cache -> 6144 KB",
+      "Added BUSx2",
+      "Added BUSx1",
+      "Added ALUx2",
+      "Added DIVx1",
+      "Added PREDx1",
+      "Novel unit: ACCELx3",
+      "Added STOREx1",
+      "Added DMAx1",
+      "Merged PRED into FPU",
+      "Merged CTRL into ACCEL",
+      "Added PREDx1"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 62,
+    "pipeline_stages": 32,
+    "cache_kb": 6144,
+    "units": [
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 3,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 3,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "TENSOR",
+        "count": 5,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "STORE",
+        "count": 4,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "ACCEL",
+        "count": 2,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 4,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 1,
+        "color": "#ffff44"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      }
+    ],
+    "generation": 67,
+    "fitness": 848.0011,
+    "name": "RISC-V-128bit-gen67",
+    "mutation_history": [
+      "Novel unit: PREDx3",
+      "Added REGx2",
+      "Added RETIREx2",
+      "Added MULx1",
+      "Cores -> 63",
+      "Cores -> 62",
+      "Added INTx2",
+      "Added DIVx1",
+      "Novel unit: LOADx3",
+      "Added CTRLx2",
+      "Added FPUx1",
+      "Added VECx1",
+      "Cache -> 4096 KB",
+      "Scaled STORE by +1",
+      "Merged BUS into CACHE",
+      "Added PREDx2",
+      "Added SCHEDx2",
+      "Split LOAD -> new ACCELx1",
+      "Added VECx1",
+      "Merged FETCH into FPU",
+      "Removed CTRL",
+      "Merged RETIRE into MUL",
+      "Added SCHEDx2",
+      "Added VECx2",
+      "Merged INT into TENSOR",
+      "Cache -> 6144 KB",
+      "Added BUSx2",
+      "Added BUSx1",
+      "Added ALUx2",
+      "Merged DIV into RETIRE"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 62,
+    "pipeline_stages": 32,
+    "cache_kb": 2048,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 3,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 3,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "STORE",
+        "count": 4,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 2,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "INT",
+        "count": 2,
+        "color": "#ff4400"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "LOAD",
+        "count": 3,
+        "color": "#44aaff"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      }
+    ],
+    "generation": 55,
+    "fitness": 682.481,
+    "name": "RISC-V-128bit-gen55",
+    "mutation_history": [
+      "Added CACHEx2",
+      "Added DIVx2",
+      "Novel unit: VECx2",
+      "Renamed SIMD -> ACCEL",
+      "Novel unit: SCHEDx4",
+      "Added REGx1",
+      "Scaled MEM by +1",
+      "Added TENSORx2",
+      "Scaled REG by +3",
+      "Added CTRLx1",
+      "Added BUSx2",
+      "Added SCHEDx1",
+      "Novel unit: PREDx3",
+      "Added REGx2",
+      "Added RETIREx2",
+      "Added MULx1",
+      "Cores -> 63",
+      "Cores -> 62",
+      "Added INTx2",
+      "Added DIVx1",
+      "Novel unit: LOADx3",
+      "Added CTRLx2",
+      "Added FPUx1",
+      "Added VECx1",
+      "Cache -> 4096 KB",
+      "Scaled STORE by +1",
+      "Merged BUS into CACHE",
+      "Added PREDx2",
+      "Added SCHEDx2",
+      "Cache -> 2048 KB"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 64,
+    "pipeline_stages": 32,
+    "cache_kb": 2048,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 1,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 3,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "STORE",
+        "count": 3,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 2,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      }
+    ],
+    "generation": 40,
+    "fitness": 624.8785,
+    "name": "RISC-V-128bit-gen40",
+    "mutation_history": [
+      "Novel unit: TENSORx3",
+      "Added CTRLx2",
+      "Novel unit: STOREx3",
+      "Added VECx1",
+      "Novel unit: ACCELx4",
+      "Bit width 64 -> 128",
+      "Added STOREx1",
+      "Merged DECODE into ALU",
+      "Added MULx1",
+      "Added CTRLx2",
+      "Added RETIREx2",
+      "Novel unit: ACCELx2",
+      "Added MEMx1",
+      "Added MULx1",
+      "Added FETCHx2",
+      "Added CACHEx2",
+      "Added DIVx2",
+      "Novel unit: VECx2",
+      "Renamed SIMD -> ACCEL",
+      "Novel unit: SCHEDx4",
+      "Added REGx1",
+      "Scaled MEM by +1",
+      "Added TENSORx2",
+      "Scaled REG by +3",
+      "Added CTRLx1",
+      "Added BUSx2",
+      "Added SCHEDx1",
+      "Novel unit: PREDx3",
+      "Added REGx2",
+      "Added RETIREx2"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 64,
+    "pipeline_stages": 32,
+    "cache_kb": 2048,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 1,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 3,
+        "color": "#ff4466"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 3,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "STORE",
+        "count": 3,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 2,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      }
+    ],
+    "generation": 32,
+    "fitness": 569.4694,
+    "name": "RISC-V-128bit-gen32",
+    "mutation_history": [
+      "Added MEMx1",
+      "Cache -> 2048 KB",
+      "Bit width 16 -> 32",
+      "Novel unit: BUSx2",
+      "Added DIVx2",
+      "Scaled ALU by +3",
+      "Bit width 32 -> 64",
+      "Scaled MEM by +2",
+      "Novel unit: TENSORx3",
+      "Added CTRLx2",
+      "Novel unit: STOREx3",
+      "Added VECx1",
+      "Novel unit: ACCELx4",
+      "Bit width 64 -> 128",
+      "Added STOREx1",
+      "Merged DECODE into ALU",
+      "Added MULx1",
+      "Added CTRLx2",
+      "Added RETIREx2",
+      "Novel unit: ACCELx2",
+      "Added MEMx1",
+      "Added MULx1",
+      "Added FETCHx2",
+      "Added CACHEx2",
+      "Added DIVx2",
+      "Novel unit: VECx2",
+      "Renamed SIMD -> ACCEL",
+      "Novel unit: SCHEDx4",
+      "Added REGx1",
+      "Renamed REG -> RETIRE"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 128,
+    "core_count": 64,
+    "pipeline_stages": 32,
+    "cache_kb": 2048,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "ALU",
+        "count": 5,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 1,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "SIMD",
+        "count": 3,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 3,
+        "color": "#ff4466"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 3,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "STORE",
+        "count": 3,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      }
+    ],
+    "generation": 21,
+    "fitness": 462.381,
+    "name": "RISC-V-128bit-gen21",
+    "mutation_history": [
+      "Novel unit: SIMDx3",
+      "Split REG -> new MEMx1",
+      "Added MEMx1",
+      "Cache -> 2048 KB",
+      "Bit width 16 -> 32",
+      "Novel unit: BUSx2",
+      "Added DIVx2",
+      "Scaled ALU by +3",
+      "Bit width 32 -> 64",
+      "Scaled MEM by +2",
+      "Novel unit: TENSORx3",
+      "Added CTRLx2",
+      "Novel unit: STOREx3",
+      "Added VECx1",
+      "Novel unit: ACCELx4",
+      "Bit width 64 -> 128",
+      "Added STOREx1",
+      "Merged DECODE into ALU",
+      "Added MULx1",
+      "Added CTRLx2",
+      "Bit width 128 -> 128"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 32,
+    "core_count": 62,
+    "pipeline_stages": 32,
+    "cache_kb": 64,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "DECODE",
+        "count": 4,
+        "color": "#aaffaa"
+      },
+      {
+        "name": "ALU",
+        "count": 6,
+        "color": "#00ff88"
+      },
+      {
+        "name": "CACHE",
+        "count": 4,
+        "color": "#8844ff"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "STORE",
+        "count": 3,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 3,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "IO",
+        "count": 2,
+        "color": "#ff44ff"
+      },
+      {
+        "name": "SCHED",
+        "count": 3,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 4,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "LOAD",
+        "count": 1,
+        "color": "#44aaff"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "SIMD",
+        "count": 7,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "IO",
+        "count": 2,
+        "color": "#ff44ff"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "INT",
+        "count": 3,
+        "color": "#ff4400"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 1,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "SIMD",
+        "count": 1,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "SIMD",
+        "count": 1,
+        "color": "#aa66ff"
+      }
+    ],
+    "generation": 32,
+    "fitness": 374.8273,
+    "name": "RISC-V-32bit-gen32",
+    "mutation_history": [
+      "Novel unit: STOREx3",
+      "Novel unit: BUSx3",
+      "Added CTRLx2",
+      "Scaled REG by +3",
+      "Swapped CACHE <-> REG",
+      "Added VECx2",
+      "Added IOx2",
+      "Novel unit: SCHEDx3",
+      "Novel unit: VECx4",
+      "Merged FPU into ALU",
+      "Added LOADx1",
+      "Added DMAx1",
+      "Novel unit: SIMDx4",
+      "Added IOx2",
+      "Added REGx1",
+      "Added CACHEx2",
+      "Swapped BUS <-> MUL",
+      "Scaled SIMD by +3",
+      "Cores -> 63",
+      "Cores -> 62",
+      "Novel unit: INTx3",
+      "Added MULx2",
+      "Added REGx2",
+      "Added TENSORx1",
+      "Added PREDx2",
+      "Added SCHEDx1",
+      "Added RETIREx1",
+      "Split MUL -> new SIMDx1",
+      "Added SIMDx1",
+      "Scaled IO by +0"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 32,
+    "core_count": 63,
+    "pipeline_stages": 32,
+    "cache_kb": 64,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "RETIRE",
+        "count": 4,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "ALU",
+        "count": 6,
+        "color": "#00ff88"
+      },
+      {
+        "name": "CACHE",
+        "count": 4,
+        "color": "#8844ff"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "STORE",
+        "count": 3,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 3,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "IO",
+        "count": 2,
+        "color": "#ff44ff"
+      },
+      {
+        "name": "SCHED",
+        "count": 3,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 4,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "LOAD",
+        "count": 1,
+        "color": "#44aaff"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "SIMD",
+        "count": 7,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "IO",
+        "count": 2,
+        "color": "#ff44ff"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      }
+    ],
+    "generation": 22,
+    "fitness": 325.6067,
+    "name": "RISC-V-32bit-gen22",
+    "mutation_history": [
+      "Swapped REG <-> FPU",
+      "Scaled DECODE by +3",
+      "Novel unit: STOREx3",
+      "Novel unit: BUSx3",
+      "Added CTRLx2",
+      "Scaled REG by +3",
+      "Swapped CACHE <-> REG",
+      "Added VECx2",
+      "Added IOx2",
+      "Novel unit: SCHEDx3",
+      "Novel unit: VECx4",
+      "Merged FPU into ALU",
+      "Added LOADx1",
+      "Added DMAx1",
+      "Novel unit: SIMDx4",
+      "Added IOx2",
+      "Added REGx1",
+      "Added CACHEx2",
+      "Swapped BUS <-> MUL",
+      "Scaled SIMD by +3",
+      "Cores -> 63",
+      "Renamed DECODE -> RETIRE"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 64,
+    "core_count": 64,
+    "pipeline_stages": 32,
+    "cache_kb": 2048,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "DECODE",
+        "count": 1,
+        "color": "#aaffaa"
+      },
+      {
+        "name": "ALU",
+        "count": 4,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 1,
+        "color": "#00ccff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "CACHE",
+        "count": 1,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "REG",
+        "count": 1,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "SIMD",
+        "count": 3,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 3,
+        "color": "#ff4466"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 3,
+        "color": "#ff66aa"
+      }
+    ],
+    "generation": 11,
+    "fitness": 311.6672,
+    "name": "RISC-V-64bit-gen11",
+    "mutation_history": [
+      "Novel unit: SIMDx3",
+      "Split REG -> new MEMx1",
+      "Added MEMx1",
+      "Cache -> 2048 KB",
+      "Bit width 16 -> 32",
+      "Novel unit: BUSx2",
+      "Added DIVx2",
+      "Scaled ALU by +3",
+      "Bit width 32 -> 64",
+      "Scaled MEM by +2",
+      "Novel unit: TENSORx3"
+    ]
+  },
+  {
+    "chip_type": "RISC-V",
+    "bit_width": 16,
+    "core_count": 64,
+    "pipeline_stages": 32,
+    "cache_kb": 64,
+    "units": [
+      {
+        "name": "FETCH",
+        "count": 1,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "DECODE",
+        "count": 4,
+        "color": "#aaffaa"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "CACHE",
+        "count": 4,
+        "color": "#8844ff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 4,
+        "color": "#00ccff"
+      },
+      {
+        "name": "RETIRE",
+        "count": 1,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "STORE",
+        "count": 3,
+        "color": "#ff6688"
+      },
+      {
+        "name": "BUS",
+        "count": 3,
+        "color": "#888888"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "IO",
+        "count": 2,
+        "color": "#ff44ff"
+      },
+      {
+        "name": "SCHED",
+        "count": 3,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 4,
+        "color": "#66ffaa"
+      }
+    ],
+    "generation": 12,
+    "fitness": 209.8464,
+    "name": "RISC-V-16bit-gen12",
+    "mutation_history": [
+      "Swapped REG <-> FPU",
+      "Scaled DECODE by +3",
+      "Novel unit: STOREx3",
+      "Novel unit: BUSx3",
+      "Added CTRLx2",
+      "Scaled REG by +3",
+      "Swapped CACHE <-> REG",
+      "Added VECx2",
+      "Added IOx2",
+      "Novel unit: SCHEDx3",
+      "Novel unit: VECx4",
+      "Bit width 32 -> 16"
+    ]
+  }
+]

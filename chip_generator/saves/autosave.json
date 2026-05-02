@@ -1,41 +1,31 @@
 {
   "version": 2,
-  "saved_at": "2026-05-02 20:13:52",
+  "saved_at": "2026-05-02 20:17:20",
   "chip": {
     "chip_type": "RISC-V",
-    "bit_width": 32,
-    "core_count": 1,
-    "pipeline_stages": 5,
-    "cache_kb": 64,
+    "bit_width": 128,
+    "core_count": 61,
+    "pipeline_stages": 32,
+    "cache_kb": 6144,
     "units": [
       {
-        "name": "FETCH",
-        "count": 1,
-        "color": "#ffaaaa"
-      },
-      {
-        "name": "DECODE",
-        "count": 1,
-        "color": "#aaffaa"
-      },
-      {
         "name": "ALU",
-        "count": 2,
+        "count": 5,
         "color": "#00ff88"
       },
       {
         "name": "FPU",
-        "count": 1,
+        "count": 2,
         "color": "#00ccff"
       },
       {
         "name": "MUL",
-        "count": 1,
+        "count": 3,
         "color": "#ffcc00"
       },
       {
         "name": "CACHE",
-        "count": 2,
+        "count": 3,
         "color": "#8844ff"
       },
       {
@@ -50,117 +40,388 @@
       },
       {
         "name": "REG",
-        "count": 4,
+        "count": 1,
         "color": "#44aa88"
       },
       {
         "name": "RETIRE",
         "count": 1,
         "color": "#aaaaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MEM",
+        "count": 4,
+        "color": "#ff4466"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "TENSOR",
+        "count": 5,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "STORE",
+        "count": 4,
+        "color": "#ff6688"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "MEM",
+        "count": 1,
+        "color": "#ff4466"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "FETCH",
+        "count": 2,
+        "color": "#ffaaaa"
+      },
+      {
+        "name": "CACHE",
+        "count": 2,
+        "color": "#8844ff"
+      },
+      {
+        "name": "DIV",
+        "count": 2,
+        "color": "#ff8800"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 4,
+        "color": "#00ff00"
+      },
+      {
+        "name": "REG",
+        "count": 4,
+        "color": "#44aa88"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "CTRL",
+        "count": 1,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "BUS",
+        "count": 2,
+        "color": "#888888"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "PRED",
+        "count": 3,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "REG",
+        "count": 2,
+        "color": "#44aa88"
+      },
+      {
+        "name": "RETIRE",
+        "count": 2,
+        "color": "#aaaaff"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "CTRL",
+        "count": 2,
+        "color": "#44ffcc"
+      },
+      {
+        "name": "FPU",
+        "count": 5,
+        "color": "#00ccff"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "PRED",
+        "count": 2,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "SCHED",
+        "count": 1,
+        "color": "#00ff00"
+      },
+      {
+        "name": "ACCEL",
+        "count": 1,
+        "color": "#ffff44"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "SCHED",
+        "count": 2,
+        "color": "#00ff00"
+      },
+      {
+        "name": "VEC",
+        "count": 2,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 4,
+        "color": "#888888"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "DIV",
+        "count": 1,
+        "color": "#ff8800"
+      },
+      {
+        "name": "ACCEL",
+        "count": 3,
+        "color": "#ffff44"
+      },
+      {
+        "name": "STORE",
+        "count": 1,
+        "color": "#ff6688"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "PRED",
+        "count": 1,
+        "color": "#ffaa44"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "VEC",
+        "count": 1,
+        "color": "#66ffaa"
+      },
+      {
+        "name": "BUS",
+        "count": 1,
+        "color": "#888888"
+      },
+      {
+        "name": "INT",
+        "count": 1,
+        "color": "#ff4400"
+      },
+      {
+        "name": "MUL",
+        "count": 2,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "LOAD",
+        "count": 2,
+        "color": "#44aaff"
+      },
+      {
+        "name": "ACCEL",
+        "count": 4,
+        "color": "#ffff44"
+      },
+      {
+        "name": "SIMD",
+        "count": 2,
+        "color": "#aa66ff"
+      },
+      {
+        "name": "ALU",
+        "count": 1,
+        "color": "#00ff88"
+      },
+      {
+        "name": "MUL",
+        "count": 1,
+        "color": "#ffcc00"
+      },
+      {
+        "name": "MEM",
+        "count": 2,
+        "color": "#ff4466"
+      },
+      {
+        "name": "TENSOR",
+        "count": 2,
+        "color": "#ff66aa"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "DMA",
+        "count": 1,
+        "color": "#44ffff"
+      },
+      {
+        "name": "ALU",
+        "count": 2,
+        "color": "#00ff88"
+      },
+      {
+        "name": "FPU",
+        "count": 2,
+        "color": "#00ccff"
       }
     ],
-    "generation": 0,
-    "fitness": 112.3079,
-    "name": "RISC-V-32bit-gen0",
-    "mutation_history": []
+    "generation": 94,
+    "fitness": 1150.7299,
+    "name": "RISC-V-128bit-gen94",
+    "mutation_history": [
+      "Added BUSx1",
+      "Added ALUx2",
+      "Added DIVx1",
+      "Added PREDx1",
+      "Novel unit: ACCELx3",
+      "Added STOREx1",
+      "Added DMAx1",
+      "Merged PRED into FPU",
+      "Merged CTRL into ACCEL",
+      "Added PREDx1",
+      "Scaled BUS by +2",
+      "Added TENSORx2",
+      "Added VECx1",
+      "Scaled FPU by +3",
+      "Cores -> 61",
+      "Added BUSx1",
+      "Added INTx1",
+      "Added MULx2",
+      "Added LOADx2",
+      "Novel unit: ACCELx4",
+      "Added SIMDx2",
+      "Added ALUx1",
+      "Scaled SCHED by -1",
+      "Added MULx1",
+      "Added MEMx2",
+      "Added TENSORx2",
+      "Added ALUx2",
+      "Added DMAx1",
+      "Added ALUx2",
+      "Added FPUx2"
+    ]
   },
   "engine": {
     "population": [
       {
         "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 64,
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
         "units": [
           {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
-          },
-          {
-            "name": "DECODE",
-            "count": 1,
-            "color": "#aaffaa"
-          },
-          {
             "name": "ALU",
-            "count": 4,
+            "count": 5,
             "color": "#00ff88"
           },
           {
             "name": "FPU",
-            "count": 1,
-            "color": "#00ccff"
-          },
-          {
-            "name": "MUL",
-            "count": 1,
-            "color": "#ffcc00"
-          },
-          {
-            "name": "MEM",
-            "count": 1,
-            "color": "#ff4466"
-          },
-          {
-            "name": "CTRL",
-            "count": 1,
-            "color": "#44ffcc"
-          },
-          {
-            "name": "REG",
-            "count": 4,
-            "color": "#44aa88"
-          },
-          {
-            "name": "RETIRE",
-            "count": 1,
-            "color": "#aaaaff"
-          }
-        ],
-        "generation": 1,
-        "fitness": 124.208,
-        "name": "RISC-V-32bit-gen1",
-        "mutation_history": [
-          "Merged CACHE into ALU"
-        ]
-      },
-      {
-        "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 7,
-        "cache_kb": 64,
-        "units": [
-          {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
-          },
-          {
-            "name": "DECODE",
-            "count": 1,
-            "color": "#aaffaa"
-          },
-          {
-            "name": "ALU",
             "count": 2,
-            "color": "#00ff88"
-          },
-          {
-            "name": "FPU",
-            "count": 1,
             "color": "#00ccff"
           },
           {
             "name": "MUL",
-            "count": 1,
+            "count": 3,
             "color": "#ffcc00"
           },
           {
             "name": "CACHE",
-            "count": 2,
+            "count": 3,
             "color": "#8844ff"
           },
           {
@@ -175,58 +436,18 @@
           },
           {
             "name": "REG",
-            "count": 4,
+            "count": 1,
             "color": "#44aa88"
           },
           {
             "name": "RETIRE",
             "count": 1,
             "color": "#aaaaff"
-          }
-        ],
-        "generation": 1,
-        "fitness": 121.2925,
-        "name": "RISC-V-32bit-gen1",
-        "mutation_history": [
-          "Pipeline -> 7 stages"
-        ]
-      },
-      {
-        "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 64,
-        "units": [
-          {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
           },
           {
-            "name": "DECODE",
-            "count": 1,
-            "color": "#aaffaa"
-          },
-          {
-            "name": "ALU",
-            "count": 2,
-            "color": "#00ff88"
-          },
-          {
-            "name": "FPU",
-            "count": 1,
-            "color": "#00ccff"
-          },
-          {
-            "name": "MUL",
-            "count": 1,
-            "color": "#ffcc00"
-          },
-          {
-            "name": "CACHE",
-            "count": 2,
-            "color": "#8844ff"
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
           },
           {
             "name": "MEM",
@@ -234,59 +455,39 @@
             "color": "#ff4466"
           },
           {
-            "name": "CTRL",
-            "count": 1,
-            "color": "#44ffcc"
-          },
-          {
-            "name": "REG",
+            "name": "MEM",
             "count": 4,
-            "color": "#44aa88"
+            "color": "#ff4466"
           },
           {
-            "name": "RETIRE",
-            "count": 1,
-            "color": "#aaaaff"
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
           },
           {
             "name": "STORE",
-            "count": 2,
+            "count": 4,
             "color": "#ff6688"
-          }
-        ],
-        "generation": 1,
-        "fitness": 115.7251,
-        "name": "RISC-V-32bit-gen1",
-        "mutation_history": [
-          "Added STOREx2"
-        ]
-      },
-      {
-        "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 64,
-        "units": [
-          {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
           },
           {
-            "name": "DECODE",
+            "name": "VEC",
             "count": 1,
-            "color": "#aaffaa"
+            "color": "#66ffaa"
           },
           {
-            "name": "ALU",
-            "count": 2,
-            "color": "#00ff88"
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
           },
           {
-            "name": "FPU",
+            "name": "STORE",
             "count": 1,
-            "color": "#00ccff"
+            "color": "#ff6688"
           },
           {
             "name": "MUL",
@@ -294,9 +495,9 @@
             "color": "#ffcc00"
           },
           {
-            "name": "CACHE",
-            "count": 2,
-            "color": "#8844ff"
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
           },
           {
             "name": "MEM",
@@ -304,39 +505,244 @@
             "color": "#ff4466"
           },
           {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
             "name": "REG",
             "count": 4,
             "color": "#44aa88"
           },
           {
-            "name": "RETIRE",
-            "count": 1,
-            "color": "#aaaaff"
-          }
-        ],
-        "generation": 1,
-        "fitness": 114.2447,
-        "name": "RISC-V-32bit-gen1",
-        "mutation_history": [
-          "Removed CTRL"
-        ]
-      },
-      {
-        "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 64,
-        "units": [
-          {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
           },
           {
-            "name": "DECODE",
+            "name": "CTRL",
             "count": 1,
-            "color": "#aaffaa"
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
           },
           {
             "name": "ALU",
@@ -345,17 +751,71 @@
           },
           {
             "name": "FPU",
-            "count": 1,
+            "count": 2,
+            "color": "#00ccff"
+          }
+        ],
+        "generation": 94,
+        "fitness": 1150.7299,
+        "name": "RISC-V-128bit-gen94",
+        "mutation_history": [
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2",
+          "Added TENSORx2",
+          "Added ALUx2",
+          "Added DMAx1",
+          "Added ALUx2",
+          "Added FPUx2"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
+        "units": [
+          {
+            "name": "ALU",
+            "count": 5,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 2,
             "color": "#00ccff"
           },
           {
             "name": "MUL",
-            "count": 1,
+            "count": 3,
             "color": "#ffcc00"
           },
           {
             "name": "CACHE",
-            "count": 2,
+            "count": 3,
             "color": "#8844ff"
           },
           {
@@ -370,46 +830,58 @@
           },
           {
             "name": "REG",
-            "count": 4,
+            "count": 1,
             "color": "#44aa88"
           },
           {
             "name": "RETIRE",
             "count": 1,
             "color": "#aaaaff"
-          }
-        ],
-        "generation": 0,
-        "fitness": 112.3079,
-        "name": "RISC-V-32bit-gen0",
-        "mutation_history": []
-      },
-      {
-        "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 64,
-        "units": [
-          {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
           },
           {
-            "name": "DECODE",
-            "count": 1,
-            "color": "#aaffaa"
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
           },
           {
-            "name": "ALU",
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MEM",
+            "count": 4,
+            "color": "#ff4466"
+          },
+          {
+            "name": "DIV",
             "count": 2,
-            "color": "#00ff88"
+            "color": "#ff8800"
           },
           {
-            "name": "FPU",
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
             "count": 1,
-            "color": "#00ccff"
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
           },
           {
             "name": "MUL",
@@ -417,8 +889,322 @@
             "color": "#ffcc00"
           },
           {
-            "name": "CACHE",
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
             "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          }
+        ],
+        "generation": 93,
+        "fitness": 1140.3133,
+        "name": "RISC-V-128bit-gen93",
+        "mutation_history": [
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2",
+          "Added TENSORx2",
+          "Added ALUx2",
+          "Added DMAx1",
+          "Added ALUx2"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
+        "units": [
+          {
+            "name": "ALU",
+            "count": 5,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 2,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 3,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 3,
             "color": "#8844ff"
           },
           {
@@ -433,13 +1219,308 @@
           },
           {
             "name": "REG",
-            "count": 4,
+            "count": 1,
             "color": "#44aa88"
           },
           {
             "name": "RETIRE",
             "count": 1,
             "color": "#aaaaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MEM",
+            "count": 4,
+            "color": "#ff4466"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
           },
           {
             "name": "DMA",
@@ -447,48 +1528,67 @@
             "color": "#44ffff"
           }
         ],
-        "generation": 1,
-        "fitness": 109.3328,
-        "name": "RISC-V-32bit-gen1",
+        "generation": 92,
+        "fitness": 1127.6367,
+        "name": "RISC-V-128bit-gen92",
         "mutation_history": [
-          "Split CACHE -> new DMAx1"
+          "Cache -> 6144 KB",
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2",
+          "Added TENSORx2",
+          "Added ALUx2",
+          "Added DMAx1"
         ]
       },
       {
         "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 32,
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
         "units": [
           {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
-          },
-          {
-            "name": "DECODE",
-            "count": 1,
-            "color": "#aaffaa"
-          },
-          {
             "name": "ALU",
-            "count": 2,
+            "count": 5,
             "color": "#00ff88"
           },
           {
             "name": "FPU",
-            "count": 1,
+            "count": 2,
             "color": "#00ccff"
           },
           {
             "name": "MUL",
-            "count": 1,
+            "count": 3,
             "color": "#ffcc00"
           },
           {
             "name": "CACHE",
-            "count": 2,
+            "count": 3,
             "color": "#8844ff"
           },
           {
@@ -503,48 +1603,58 @@
           },
           {
             "name": "REG",
-            "count": 4,
+            "count": 1,
             "color": "#44aa88"
           },
           {
             "name": "RETIRE",
             "count": 1,
             "color": "#aaaaff"
-          }
-        ],
-        "generation": 1,
-        "fitness": 104.4751,
-        "name": "RISC-V-32bit-gen1",
-        "mutation_history": [
-          "Cache -> 32 KB"
-        ]
-      },
-      {
-        "chip_type": "RISC-V",
-        "bit_width": 32,
-        "core_count": 1,
-        "pipeline_stages": 5,
-        "cache_kb": 32,
-        "units": [
-          {
-            "name": "FETCH",
-            "count": 1,
-            "color": "#ffaaaa"
           },
           {
-            "name": "DECODE",
-            "count": 1,
-            "color": "#aaffaa"
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
           },
           {
-            "name": "ALU",
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DIV",
             "count": 2,
-            "color": "#00ff88"
+            "color": "#ff8800"
           },
           {
-            "name": "FPU",
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
             "count": 1,
-            "color": "#00ccff"
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
           },
           {
             "name": "MUL",
@@ -552,8 +1662,317 @@
             "color": "#ffcc00"
           },
           {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
             "name": "CACHE",
             "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          }
+        ],
+        "generation": 93,
+        "fitness": 1127.6367,
+        "name": "RISC-V-128bit-gen93",
+        "mutation_history": [
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2",
+          "Added TENSORx2",
+          "Added ALUx2",
+          "Added DMAx1",
+          "Swapped MEM <-> STORE"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
+        "units": [
+          {
+            "name": "ALU",
+            "count": 5,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 2,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 3,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 3,
             "color": "#8844ff"
           },
           {
@@ -568,54 +1987,1480 @@
           },
           {
             "name": "REG",
-            "count": 4,
+            "count": 1,
             "color": "#44aa88"
           },
           {
             "name": "RETIRE",
             "count": 1,
             "color": "#aaaaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MEM",
+            "count": 4,
+            "color": "#ff4466"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
           }
         ],
-        "generation": 1,
-        "fitness": 104.4751,
-        "name": "RISC-V-32bit-gen1",
+        "generation": 91,
+        "fitness": 1127.5717,
+        "name": "RISC-V-128bit-gen91",
         "mutation_history": [
-          "Cache -> 32 KB"
+          "Merged INT into TENSOR",
+          "Cache -> 6144 KB",
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2",
+          "Added TENSORx2",
+          "Added ALUx2"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
+        "units": [
+          {
+            "name": "ALU",
+            "count": 5,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 2,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 3,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 3,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 1,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MEM",
+            "count": 4,
+            "color": "#ff4466"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          }
+        ],
+        "generation": 90,
+        "fitness": 1114.6588,
+        "name": "RISC-V-128bit-gen90",
+        "mutation_history": [
+          "Added VECx2",
+          "Merged INT into TENSOR",
+          "Cache -> 6144 KB",
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2",
+          "Added TENSORx2"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
+        "units": [
+          {
+            "name": "ALU",
+            "count": 5,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 2,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 3,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 3,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 1,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MEM",
+            "count": 4,
+            "color": "#ff4466"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "MEM",
+            "count": 2,
+            "color": "#ff4466"
+          }
+        ],
+        "generation": 89,
+        "fitness": 1090.8211,
+        "name": "RISC-V-128bit-gen89",
+        "mutation_history": [
+          "Added SCHEDx2",
+          "Added VECx2",
+          "Merged INT into TENSOR",
+          "Cache -> 6144 KB",
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1",
+          "Added MEMx2"
+        ]
+      },
+      {
+        "chip_type": "RISC-V",
+        "bit_width": 128,
+        "core_count": 61,
+        "pipeline_stages": 32,
+        "cache_kb": 6144,
+        "units": [
+          {
+            "name": "ALU",
+            "count": 5,
+            "color": "#00ff88"
+          },
+          {
+            "name": "FPU",
+            "count": 2,
+            "color": "#00ccff"
+          },
+          {
+            "name": "MUL",
+            "count": 3,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "CACHE",
+            "count": 3,
+            "color": "#8844ff"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "REG",
+            "count": 1,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 1,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MEM",
+            "count": 4,
+            "color": "#ff4466"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "TENSOR",
+            "count": 5,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "STORE",
+            "count": 4,
+            "color": "#ff6688"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "MEM",
+            "count": 1,
+            "color": "#ff4466"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "FETCH",
+            "count": 2,
+            "color": "#ffaaaa"
+          },
+          {
+            "name": "CACHE",
+            "count": 2,
+            "color": "#8844ff"
+          },
+          {
+            "name": "DIV",
+            "count": 2,
+            "color": "#ff8800"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 4,
+            "color": "#00ff00"
+          },
+          {
+            "name": "REG",
+            "count": 4,
+            "color": "#44aa88"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "CTRL",
+            "count": 1,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "BUS",
+            "count": 2,
+            "color": "#888888"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "PRED",
+            "count": 3,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "REG",
+            "count": 2,
+            "color": "#44aa88"
+          },
+          {
+            "name": "RETIRE",
+            "count": 2,
+            "color": "#aaaaff"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "CTRL",
+            "count": 2,
+            "color": "#44ffcc"
+          },
+          {
+            "name": "FPU",
+            "count": 5,
+            "color": "#00ccff"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "PRED",
+            "count": 2,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "SCHED",
+            "count": 1,
+            "color": "#00ff00"
+          },
+          {
+            "name": "ACCEL",
+            "count": 1,
+            "color": "#ffff44"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "SCHED",
+            "count": 2,
+            "color": "#00ff00"
+          },
+          {
+            "name": "VEC",
+            "count": 2,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 4,
+            "color": "#888888"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "ALU",
+            "count": 2,
+            "color": "#00ff88"
+          },
+          {
+            "name": "DIV",
+            "count": 1,
+            "color": "#ff8800"
+          },
+          {
+            "name": "ACCEL",
+            "count": 3,
+            "color": "#ffff44"
+          },
+          {
+            "name": "STORE",
+            "count": 1,
+            "color": "#ff6688"
+          },
+          {
+            "name": "DMA",
+            "count": 1,
+            "color": "#44ffff"
+          },
+          {
+            "name": "PRED",
+            "count": 1,
+            "color": "#ffaa44"
+          },
+          {
+            "name": "TENSOR",
+            "count": 2,
+            "color": "#ff66aa"
+          },
+          {
+            "name": "VEC",
+            "count": 1,
+            "color": "#66ffaa"
+          },
+          {
+            "name": "BUS",
+            "count": 1,
+            "color": "#888888"
+          },
+          {
+            "name": "INT",
+            "count": 1,
+            "color": "#ff4400"
+          },
+          {
+            "name": "MUL",
+            "count": 2,
+            "color": "#ffcc00"
+          },
+          {
+            "name": "LOAD",
+            "count": 2,
+            "color": "#44aaff"
+          },
+          {
+            "name": "ACCEL",
+            "count": 4,
+            "color": "#ffff44"
+          },
+          {
+            "name": "SIMD",
+            "count": 2,
+            "color": "#aa66ff"
+          },
+          {
+            "name": "ALU",
+            "count": 1,
+            "color": "#00ff88"
+          },
+          {
+            "name": "MUL",
+            "count": 1,
+            "color": "#ffcc00"
+          }
+        ],
+        "generation": 88,
+        "fitness": 1088.2477,
+        "name": "RISC-V-128bit-gen88",
+        "mutation_history": [
+          "Merged RETIRE into MUL",
+          "Added SCHEDx2",
+          "Added VECx2",
+          "Merged INT into TENSOR",
+          "Cache -> 6144 KB",
+          "Added BUSx2",
+          "Added BUSx1",
+          "Added ALUx2",
+          "Added DIVx1",
+          "Added PREDx1",
+          "Novel unit: ACCELx3",
+          "Added STOREx1",
+          "Added DMAx1",
+          "Merged PRED into FPU",
+          "Merged CTRL into ACCEL",
+          "Added PREDx1",
+          "Scaled BUS by +2",
+          "Added TENSORx2",
+          "Added VECx1",
+          "Scaled FPU by +3",
+          "Cores -> 61",
+          "Added BUSx1",
+          "Added INTx1",
+          "Added MULx2",
+          "Added LOADx2",
+          "Novel unit: ACCELx4",
+          "Added SIMDx2",
+          "Added ALUx1",
+          "Scaled SCHED by -1",
+          "Added MULx1"
         ]
       }
     ],
     "best_chip": {
       "chip_type": "RISC-V",
-      "bit_width": 32,
-      "core_count": 1,
-      "pipeline_stages": 5,
-      "cache_kb": 64,
+      "bit_width": 128,
+      "core_count": 61,
+      "pipeline_stages": 32,
+      "cache_kb": 6144,
       "units": [
         {
-          "name": "FETCH",
-          "count": 1,
-          "color": "#ffaaaa"
-        },
-        {
-          "name": "DECODE",
-          "count": 1,
-          "color": "#aaffaa"
-        },
-        {
           "name": "ALU",
-          "count": 4,
+          "count": 5,
           "color": "#00ff88"
         },
         {
           "name": "FPU",
-          "count": 1,
+          "count": 2,
           "color": "#00ccff"
         },
         {
           "name": "MUL",
-          "count": 1,
+          "count": 3,
           "color": "#ffcc00"
+        },
+        {
+          "name": "CACHE",
+          "count": 3,
+          "color": "#8844ff"
         },
         {
           "name": "MEM",
@@ -629,29 +3474,2649 @@
         },
         {
           "name": "REG",
-          "count": 4,
+          "count": 1,
           "color": "#44aa88"
         },
         {
           "name": "RETIRE",
           "count": 1,
           "color": "#aaaaff"
+        },
+        {
+          "name": "ACCEL",
+          "count": 3,
+          "color": "#ffff44"
+        },
+        {
+          "name": "MEM",
+          "count": 1,
+          "color": "#ff4466"
+        },
+        {
+          "name": "MEM",
+          "count": 4,
+          "color": "#ff4466"
+        },
+        {
+          "name": "DIV",
+          "count": 2,
+          "color": "#ff8800"
+        },
+        {
+          "name": "TENSOR",
+          "count": 5,
+          "color": "#ff66aa"
+        },
+        {
+          "name": "STORE",
+          "count": 4,
+          "color": "#ff6688"
+        },
+        {
+          "name": "VEC",
+          "count": 1,
+          "color": "#66ffaa"
+        },
+        {
+          "name": "ACCEL",
+          "count": 4,
+          "color": "#ffff44"
+        },
+        {
+          "name": "STORE",
+          "count": 1,
+          "color": "#ff6688"
+        },
+        {
+          "name": "MUL",
+          "count": 1,
+          "color": "#ffcc00"
+        },
+        {
+          "name": "ACCEL",
+          "count": 4,
+          "color": "#ffff44"
+        },
+        {
+          "name": "MEM",
+          "count": 1,
+          "color": "#ff4466"
+        },
+        {
+          "name": "MUL",
+          "count": 1,
+          "color": "#ffcc00"
+        },
+        {
+          "name": "FETCH",
+          "count": 2,
+          "color": "#ffaaaa"
+        },
+        {
+          "name": "CACHE",
+          "count": 2,
+          "color": "#8844ff"
+        },
+        {
+          "name": "DIV",
+          "count": 2,
+          "color": "#ff8800"
+        },
+        {
+          "name": "VEC",
+          "count": 2,
+          "color": "#66ffaa"
+        },
+        {
+          "name": "SCHED",
+          "count": 4,
+          "color": "#00ff00"
+        },
+        {
+          "name": "REG",
+          "count": 4,
+          "color": "#44aa88"
+        },
+        {
+          "name": "TENSOR",
+          "count": 2,
+          "color": "#ff66aa"
+        },
+        {
+          "name": "CTRL",
+          "count": 1,
+          "color": "#44ffcc"
+        },
+        {
+          "name": "BUS",
+          "count": 2,
+          "color": "#888888"
+        },
+        {
+          "name": "SCHED",
+          "count": 1,
+          "color": "#00ff00"
+        },
+        {
+          "name": "PRED",
+          "count": 3,
+          "color": "#ffaa44"
+        },
+        {
+          "name": "REG",
+          "count": 2,
+          "color": "#44aa88"
+        },
+        {
+          "name": "RETIRE",
+          "count": 2,
+          "color": "#aaaaff"
+        },
+        {
+          "name": "MUL",
+          "count": 1,
+          "color": "#ffcc00"
+        },
+        {
+          "name": "DIV",
+          "count": 1,
+          "color": "#ff8800"
+        },
+        {
+          "name": "LOAD",
+          "count": 2,
+          "color": "#44aaff"
+        },
+        {
+          "name": "CTRL",
+          "count": 2,
+          "color": "#44ffcc"
+        },
+        {
+          "name": "FPU",
+          "count": 5,
+          "color": "#00ccff"
+        },
+        {
+          "name": "VEC",
+          "count": 1,
+          "color": "#66ffaa"
+        },
+        {
+          "name": "PRED",
+          "count": 2,
+          "color": "#ffaa44"
+        },
+        {
+          "name": "SCHED",
+          "count": 1,
+          "color": "#00ff00"
+        },
+        {
+          "name": "ACCEL",
+          "count": 1,
+          "color": "#ffff44"
+        },
+        {
+          "name": "VEC",
+          "count": 1,
+          "color": "#66ffaa"
+        },
+        {
+          "name": "SCHED",
+          "count": 2,
+          "color": "#00ff00"
+        },
+        {
+          "name": "VEC",
+          "count": 2,
+          "color": "#66ffaa"
+        },
+        {
+          "name": "BUS",
+          "count": 4,
+          "color": "#888888"
+        },
+        {
+          "name": "BUS",
+          "count": 1,
+          "color": "#888888"
+        },
+        {
+          "name": "ALU",
+          "count": 2,
+          "color": "#00ff88"
+        },
+        {
+          "name": "DIV",
+          "count": 1,
+          "color": "#ff8800"
+        },
+        {
+          "name": "ACCEL",
+          "count": 3,
+          "color": "#ffff44"
+        },
+        {
+          "name": "STORE",
+          "count": 1,
+          "color": "#ff6688"
+        },
+        {
+          "name": "DMA",
+          "count": 1,
+          "color": "#44ffff"
+        },
+        {
+          "name": "PRED",
+          "count": 1,
+          "color": "#ffaa44"
+        },
+        {
+          "name": "TENSOR",
+          "count": 2,
+          "color": "#ff66aa"
+        },
+        {
+          "name": "VEC",
+          "count": 1,
+          "color": "#66ffaa"
+        },
+        {
+          "name": "BUS",
+          "count": 1,
+          "color": "#888888"
+        },
+        {
+          "name": "INT",
+          "count": 1,
+          "color": "#ff4400"
+        },
+        {
+          "name": "MUL",
+          "count": 2,
+          "color": "#ffcc00"
+        },
+        {
+          "name": "LOAD",
+          "count": 2,
+          "color": "#44aaff"
+        },
+        {
+          "name": "ACCEL",
+          "count": 4,
+          "color": "#ffff44"
+        },
+        {
+          "name": "SIMD",
+          "count": 2,
+          "color": "#aa66ff"
+        },
+        {
+          "name": "ALU",
+          "count": 1,
+          "color": "#00ff88"
+        },
+        {
+          "name": "MUL",
+          "count": 1,
+          "color": "#ffcc00"
+        },
+        {
+          "name": "MEM",
+          "count": 2,
+          "color": "#ff4466"
+        },
+        {
+          "name": "TENSOR",
+          "count": 2,
+          "color": "#ff66aa"
+        },
+        {
+          "name": "ALU",
+          "count": 2,
+          "color": "#00ff88"
+        },
+        {
+          "name": "DMA",
+          "count": 1,
+          "color": "#44ffff"
+        },
+        {
+          "name": "ALU",
+          "count": 2,
+          "color": "#00ff88"
+        },
+        {
+          "name": "FPU",
+          "count": 2,
+          "color": "#00ccff"
         }
       ],
-      "generation": 1,
-      "fitness": 124.208,
-      "name": "RISC-V-32bit-gen1",
+      "generation": 94,
+      "fitness": 1150.7299,
+      "name": "RISC-V-128bit-gen94",
       "mutation_history": [
-        "Merged CACHE into ALU"
+        "Added BUSx1",
+        "Added ALUx2",
+        "Added DIVx1",
+        "Added PREDx1",
+        "Novel unit: ACCELx3",
+        "Added STOREx1",
+        "Added DMAx1",
+        "Merged PRED into FPU",
+        "Merged CTRL into ACCEL",
+        "Added PREDx1",
+        "Scaled BUS by +2",
+        "Added TENSORx2",
+        "Added VECx1",
+        "Scaled FPU by +3",
+        "Cores -> 61",
+        "Added BUSx1",
+        "Added INTx1",
+        "Added MULx2",
+        "Added LOADx2",
+        "Novel unit: ACCELx4",
+        "Added SIMDx2",
+        "Added ALUx1",
+        "Scaled SCHED by -1",
+        "Added MULx1",
+        "Added MEMx2",
+        "Added TENSORx2",
+        "Added ALUx2",
+        "Added DMAx1",
+        "Added ALUx2",
+        "Added FPUx2"
       ]
     },
-    "generation": 0,
-    "evolution_log": [],
+    "generation": 186,
+    "evolution_log": [
+      "Gen 137: add_unit | Added STOREx1 | fitness 896.200 -> 898.416 | reward +2.215",
+      "Gen 138: add_unit | Added DMAx1 | fitness 898.416 -> 899.439 | reward +1.024",
+      "Gen 139: merge_units | Merged PRED into FPU | fitness 899.439 -> 905.893 | reward +6.454",
+      "Gen 140: add_unit | Added REGx2 | fitness 905.893 -> 905.536 | reward -0.357",
+      "Gen 141: remove_unit | Removed ACCEL | fitness 905.893 -> 854.137 | reward -51.756",
+      "Gen 142: change_bitwidth | Bit width 128 -> 128 | fitness 905.893 -> 905.893 | reward +0.000",
+      "Gen 143: scale_unit | Scaled FETCH by +1 | fitness 905.893 -> 905.130 | reward -0.764",
+      "Gen 144: change_bitwidth | Bit width 128 -> 128 | fitness 905.893 -> 905.893 | reward +0.000",
+      "Gen 145: merge_units | Merged CTRL into ACCEL | fitness 905.893 -> 932.882 | reward +26.989",
+      "Gen 146: add_unit | Added PREDx1 | fitness 932.882 -> 933.177 | reward +0.295",
+      "Gen 147: add_unit | Added REGx2 | fitness 933.177 -> 932.601 | reward -0.576",
+      "Gen 148: change_bitwidth | Bit width 128 -> 128 | fitness 933.177 -> 933.177 | reward +0.000",
+      "Gen 149: swap_units | Swapped ACCEL <-> MUL | fitness 933.177 -> 917.985 | reward -15.193",
+      "Gen 150: change_bitwidth | Bit width 128 -> 128 | fitness 933.177 -> 933.177 | reward +0.000",
+      "Gen 151: remove_unit | Removed VEC | fitness 933.177 -> 914.911 | reward -18.266",
+      "Gen 152: scale_unit | Scaled BUS by +2 | fitness 933.177 -> 937.238 | reward +4.061",
+      "Gen 153: split_unit | Split PRED -> new PREDx1 | fitness 937.238 -> 937.238 | reward +0.000",
+      "Gen 154: add_unit | Added TENSORx2 | fitness 937.238 -> 964.233 | reward +26.995",
+      "Gen 155: merge_units | Merged VEC into CACHE | fitness 964.233 -> 958.483 | reward -5.750",
+      "Gen 156: add_unit | Added VECx1 | fitness 964.233 -> 972.987 | reward +8.754",
+      "Gen 157: merge_units | Merged ACCEL into VEC | fitness 972.987 -> 962.679 | reward -10.308",
+      "Gen 158: swap_units | Swapped ACCEL <-> TENSOR | fitness 972.987 -> 971.842 | reward -1.145",
+      "Gen 159: add_unit | Added SCHEDx2 | fitness 972.987 -> 972.107 | reward -0.880",
+      "Gen 160: remove_unit | Removed TENSOR | fitness 972.987 -> 905.130 | reward -67.857",
+      "Gen 161: scale_unit | Scaled FPU by +3 | fitness 972.987 -> 992.045 | reward +19.058",
+      "Gen 162: change_cores | Cores -> 61 | fitness 992.045 -> 996.617 | reward +4.572",
+      "Gen 163: add_unit | Added BUSx1 | fitness 996.617 -> 998.337 | reward +1.720",
+      "Gen 164: change_bitwidth | Bit width 128 -> 128 | fitness 998.337 -> 998.337 | reward +0.000",
+      "Gen 165: add_unit | Added INTx1 | fitness 998.337 -> 999.480 | reward +1.143",
+      "Gen 166: add_unit | Added MULx2 | fitness 999.480 -> 1008.454 | reward +8.974",
+      "Gen 167: add_unit | Added LOADx2 | fitness 1008.454 -> 1011.737 | reward +3.282",
+      "Gen 168: add_unit | Added CTRLx1 | fitness 1011.737 -> 1010.593 | reward -1.144",
+      "Gen 169: change_cores | Cores -> 62 | fitness 1011.737 -> 1007.280 | reward -4.456",
+      "Gen 170: remove_unit | Removed BUS | fitness 1011.737 -> 1008.454 | reward -3.282",
+      "Gen 171: scale_unit | Scaled RETIRE by +3 | fitness 1011.737 -> 1008.332 | reward -3.405",
+      "Gen 172: add_novel_unit | Novel unit: ACCELx4 | fitness 1011.737 -> 1057.521 | reward +45.784",
+      "Gen 173: add_unit | Added SIMDx2 | fitness 1057.521 -> 1076.636 | reward +19.115",
+      "Gen 174: add_unit | Added ALUx1 | fitness 1076.636 -> 1083.382 | reward +6.746",
+      "Gen 175: random_unit_type | Renamed MUL -> STORE | fitness 1083.382 -> 1080.679 | reward -2.703",
+      "Gen 176: add_unit | Added CTRLx1 | fitness 1083.382 -> 1081.999 | reward -1.383",
+      "Gen 177: remove_unit | Removed ALU | fitness 1083.382 -> 1076.636 | reward -6.746",
+      "Gen 178: scale_unit | Scaled SCHED by -1 | fitness 1083.382 -> 1084.233 | reward +0.851",
+      "Gen 179: add_unit | Added MULx1 | fitness 1084.233 -> 1088.248 | reward +4.015",
+      "Gen 180: add_unit | Added MEMx2 | fitness 1088.248 -> 1090.821 | reward +2.573",
+      "Gen 181: add_unit | Added TENSORx2 | fitness 1090.821 -> 1114.659 | reward +23.838",
+      "Gen 182: add_unit | Added ALUx2 | fitness 1114.659 -> 1127.572 | reward +12.913",
+      "Gen 183: add_unit | Added DMAx1 | fitness 1127.572 -> 1127.637 | reward +0.065",
+      "Gen 184: swap_units | Swapped MEM <-> STORE | fitness 1127.637 -> 1127.637 | reward +0.000",
+      "Gen 185: add_unit | Added ALUx2 | fitness 1127.637 -> 1140.313 | reward +12.677",
+      "Gen 186: add_unit | Added FPUx2 | fitness 1140.313 -> 1150.730 | reward +10.417"
+    ],
     "agent": {
-      "q_table": {},
-      "epsilon": 0.9,
-      "total_steps": 0,
-      "reward_history": []
+      "q_table": {
+        "1258": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.27667000000000147,
+          0.0,
+          0.0
+        ],
+        "1286": [
+          0.5979199999999992,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.3833400000000013,
+          0.0,
+          0.0
+        ],
+        "1148": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1346": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.07520400000000027,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1271": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1421": [
+          0.0,
+          0.0,
+          0.0,
+          -0.963965800000004,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.087530000000001,
+          -0.507510000000002,
+          0.0
+        ],
+        "1370": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1312": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1299": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1533": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.3365200000000017
+        ],
+        "1666": [
+          1.3009199999999994,
+          -0.352940000000001,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.07718000000000132,
+          0.0
+        ],
+        "1659": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1631": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "1797": [
+          0.0,
+          0.0,
+          4.1272899999999995,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "2209": [
+          0.0,
+          0.0,
+          0.0,
+          1.351650000000001,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "2344": [
+          0.0,
+          0.0,
+          1.2683099999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "2471": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.449449999999999
+        ],
+        "3116": [
+          0.3767800000000023,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "3154": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.6650699999999974
+        ],
+        "3320": [
+          1.4299200000000043,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.37229999999999563,
+          0.0
+        ],
+        "3283": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "3463": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -2.220410000000004,
+          -1.1102100000000008,
+          7.287739999999997
+        ],
+        "3241": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "3352": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4192": [
+          0.0,
+          0.0,
+          0.0,
+          1.5998500000000035,
+          0.0,
+          0.0,
+          -2.205009999999999,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "3972": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4352": [
+          0.5028099999999995,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -2.2891500000000007,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4123": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4402": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.1193800000000012,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4514": [
+          0.8620499999999993,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4601": [
+          0.22777999999999565,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4623": [
+          0.22281000000000406,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -5.284359999999999,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4095": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4646": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.521449999999999
+        ],
+        "4998": [
+          0.4467300000000023,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5042": [
+          0.7972100000000012,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -2.1428800000000026,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "4828": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5122": [
+          0.1632099999999923,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5138": [
+          1.1337400000000002,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5252": [
+          0.8349500000000035,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5335": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4533999999999994
+        ],
+        "5581": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -2.146593000000003,
+          0.0
+        ],
+        "5274": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5642": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.6814599999999928,
+          0.0,
+          0.4731300000000033
+        ],
+        "5574": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5689": [
+          0.11534000000000333,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5701": [
+          -0.018050000000005183,
+          -0.38247000000000075,
+          0.3786699999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.06645000000000892,
+          0.0
+        ],
+        "5699": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5663": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5694": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5739": [
+          3.365039999999999,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6075": [
+          -0.07177000000000362,
+          -0.3583399999999983,
+          0.2799999999999955,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6068": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6039": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6103": [
+          0.027319999999997437,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6106": [
+          0.6898500000000013,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3210499999999911,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6074": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6175": [
+          0.08682999999999766,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6184": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.3500399999999901,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.44284000000000107
+        ],
+        "6049": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6228": [
+          0.16473000000000868,
+          0.0,
+          0.0,
+          -2.6641599999999928,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5961": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6244": [
+          0.03917999999999893,
+          -1.075870000000009,
+          0.0,
+          -2.688300000000004,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6137": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "5976": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6248": [
+          0.6291399999999954,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6311": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.3793700000000058,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6349": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.3831999999999994,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6387": [
+          0.5114100000000008,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6439": [
+          0.3130499999999984,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6470": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.9221299999999929
+        ],
+        "6562": [
+          0.005930000000000746,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6563": [
+          0.7730099999999993,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6640": [
+          1.002030000000002,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "6740": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.5463600000000044,
+          0.0,
+          0.0,
+          -0.7666600000000017,
+          0.0,
+          0.0
+        ],
+        "6664": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7095": [
+          -0.005219999999997072,
+          0.0,
+          0.3037900000000036,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7094": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7125": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.247199999999998,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7150": [
+          0.229849999999999,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7173": [
+          0.10439000000000079,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7183": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.590610000000004,
+          0.0,
+          0.0,
+          1.0930599999999913,
+          0.0,
+          0.0
+        ],
+        "6824": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7293": [
+          1.014190000000008,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7394": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.7860099999999989,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7473": [
+          -0.0213799999999992,
+          -0.1372180000000026,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.5503600000000006,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7471": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7453": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7318": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7477": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.2198300000000017,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7599": [
+          0.06701999999999089,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7606": [
+          1.984050000000002,
+          0.0,
+          -0.2762699999999995,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7578": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7804": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.5176199999999995,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8056": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.355820000000006,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8291": [
+          0.5171199999999999,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8343": [
+          0.25525999999999843,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.48936999999999675,
+          0.0
+        ],
+        "8294": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8369": [
+          1.7120700000000058,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8540": [
+          0.2438299999999913,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.6039900000000102,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8480": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8564": [
+          0.010178999999996004,
+          -7.3831999999999995,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8559": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "7826": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8571": [
+          -0.05770999999999731,
+          -0.4871199999999931,
+          -0.24253999999999679,
+          0.0,
+          0.0,
+          0.0,
+          -4.162699999999996,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.9100099999999998
+        ],
+        "8565": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8522": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8546": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8154": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8962": [
+          0.22153000000000703,
+          0.0,
+          0.0,
+          0.0,
+          -0.44274999999998954,
+          0.0,
+          -4.352589999999998,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8526": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8917": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8984": [
+          0.10236999999999626,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8994": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.6453899999999977,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9058": [
+          -0.03574999999999591,
+          -5.17559,
+          -0.07637999999999466,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.698910000000001,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9055": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "8541": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9051": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9328": [
+          0.029500000000007277,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9331": [
+          -0.057630000000006024,
+          -1.8266200000000028,
+          0.40606000000000225,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.5192600000000085,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9326": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9179": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9149": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9372": [
+          2.6994599999999993,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9642": [
+          0.8754399999999919,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.574980000000005,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9584": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9729": [
+          -0.08799000000000207,
+          -6.785749999999997,
+          1.9058200000000056,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.11453999999999952,
+          -1.0308299999999917,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9626": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9718": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9721": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9920": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.4571500000000015,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9966": [
+          0.1720399999999927,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9983": [
+          0.11428000000000793,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "9994": [
+          0.8974399999999947,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10084": [
+          0.3282299999999964,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10117": [
+          -0.11436999999999671,
+          -0.29704814999999674,
+          -0.340459999999996,
+          0.0,
+          -0.44560999999999923,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4.578390000000013
+        ],
+        "10105": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10072": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10083": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10575": [
+          1.911539999999991,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10766": [
+          0.6746399999999995,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10833": [
+          -0.13831000000000132,
+          -0.6105491999999995,
+          0.08507999999999356,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.27030999999999494,
+          0.0
+        ],
+        "10806": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10819": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10842": [
+          0.4014599999999973,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10882": [
+          0.25733999999999924,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "10908": [
+          2.383770000000004,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "11146": [
+          1.2912900000000036,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "11275": [
+          0.006500000000005457,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "11276": [
+          1.267660000000001,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "11403": [
+          1.0416600000000018,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "11507": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "epsilon": 0.35427093876848276,
+      "total_steps": 186,
+      "reward_history": [
+        0.0,
+        9.221299999999928,
+        0.05930000000000746,
+        7.730099999999993,
+        10.02030000000002,
+        -7.666600000000017,
+        35.46360000000004,
+        0.0,
+        -0.052199999999970714,
+        3.037900000000036,
+        2.47199999999998,
+        2.29849999999999,
+        1.0439000000000078,
+        -35.90610000000004,
+        10.930599999999913,
+        10.141900000000078,
+        7.8600999999999885,
+        -0.213799999999992,
+        -2.0062000000000353,
+        -15.503600000000006,
+        0.0,
+        0.433400000000006,
+        0.0,
+        12.198300000000017,
+        0.6701999999999089,
+        -2.7626999999999953,
+        19.84050000000002,
+        25.176199999999994,
+        0.0,
+        23.558200000000056,
+        5.171199999999999,
+        -4.893699999999967,
+        2.552599999999984,
+        17.120700000000056,
+        -6.039900000000102,
+        2.438299999999913,
+        -0.5769000000000233,
+        -73.832,
+        0.6209999999999809,
+        -0.5770999999999731,
+        -4.871199999999931,
+        -2.425399999999968,
+        0.0,
+        0.0,
+        0.0,
+        -41.62699999999995,
+        0.0,
+        39.1001,
+        -43.52589999999998,
+        -4.427499999999895,
+        2.21530000000007,
+        1.0236999999999625,
+        6.453899999999976,
+        -0.3574999999999591,
+        -51.7559,
+        0.0,
+        -0.7637999999999465,
+        0.0,
+        26.989100000000008,
+        0.29500000000007276,
+        -0.5763000000000602,
+        0.0,
+        -15.192600000000084,
+        0.0,
+        -18.266200000000026,
+        4.060600000000022,
+        0.0,
+        26.99459999999999,
+        -5.74980000000005,
+        8.754399999999919,
+        -10.308299999999917,
+        -1.145399999999995,
+        -0.8799000000000206,
+        -67.85749999999996,
+        19.058200000000056,
+        4.5715000000000146,
+        1.7203999999999269,
+        0.0,
+        1.1428000000000793,
+        8.974399999999946,
+        3.282299999999964,
+        -1.143699999999967,
+        -4.456099999999992,
+        -3.282299999999964,
+        -3.4045999999999594,
+        45.78390000000013,
+        19.11539999999991,
+        6.746399999999994,
+        -2.7030999999999494,
+        -1.383100000000013,
+        -6.746399999999994,
+        0.8507999999999356,
+        4.014599999999973,
+        2.5733999999999924,
+        23.83770000000004,
+        12.912900000000036,
+        0.06500000000005457,
+        0.0,
+        12.676600000000008,
+        10.416600000000017
+      ]
     }
   }
 }
